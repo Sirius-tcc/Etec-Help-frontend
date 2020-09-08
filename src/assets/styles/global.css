@@ -1,0 +1,97 @@
+
+:root {
+    --color-background: #1E2125;
+    --color-background-hover: #24282D;
+    --color-primary: #363636;
+    --color-grey-light:#505B63;
+    --color-green: #2E8256;
+    --color-gray: #5B5B5B;
+    --color-text-dark:#737373;
+    --color-text-light: #D3D3D3;
+    --color-gray-dark: #455A64;
+    --color-green-light: #6BDC92;
+    --color-yellow-light: #FCFF70;
+    --color-red-color: #FF9F9F;
+    --color-cancel-red-button: #FF9F9F;
+    --color-blue: #065FD4;
+    --color-white: #FFF;
+    --color-background-icon: #339786;
+
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+   
+  ::-webkit-scrollbar-button:start:decrement,
+  ::-webkit-scrollbar-button:end:increment  {
+    display: none;
+  }
+   
+  ::-webkit-scrollbar-track-piece  {
+    background-color: var( --color-background);
+    
+  }
+   
+  ::-webkit-scrollbar-thumb:vertical {
+    background-color: var(--color-background-hover);
+    -webkit-border-radius: 8px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover{
+    background-color: var(--color-green);
+  }
+
+* { 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body, #root{
+    height: 100vh;
+}
+
+
+body{
+    background-color: var(--color-background);
+}
+
+#root{
+    display: flex;
+   align-items: center;
+    justify-content: center;
+}
+
+body,
+input,
+button,
+textarea{
+    font: 500 16px 'Poppins', sans-serif;
+    color: var(--color-text-light);
+}
+
+
+.container{
+    width: 90%;
+    max-width: 700px;
+}
+
+@keyframes flutter{
+    0% {
+        transform: translatey(0px);
+    }
+    50% {
+        transform: translatey(-15px);
+    }
+    100% {
+        transform: translatey(0px);
+    }
+}
+
+
+
+
+
+
