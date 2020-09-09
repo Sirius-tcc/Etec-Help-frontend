@@ -1,0 +1,55 @@
+.checkbox {
+    width: 26px;
+    height: 26px;
+    border: none;
+    border-radius: 6px;
+    background-color: var(--color-background-hover);
+    cursor: pointer;
+    outline: none;
+    -moz-appearance:none;
+    -webkit-appearance:none;
+    -o-appearance:none;
+    animation: chebox-animation-not-checked 0.4s ease-in-out ;
+}
+
+
+.checkbox:checked{
+    
+    background-color: var(--color-green);
+    background-image: url("../../assets/images/checked.svg");
+    background-repeat: no-repeat;
+    background-size: 18px;
+    background-position: center;
+    animation: chebox-animation-checked 0.4s ease-in-out ;
+}
+
+
+@keyframes chebox-animation-checked{
+    0%{
+        transform: scale(0.1)
+    }
+
+    50%{
+        transform: scale(1.1);
+    }
+
+    100%{
+        transform: scale(1);
+    }
+    
+}
+
+
+@keyframes chebox-animation-not-checked{
+    0%{
+        transform: scale(0.1)
+    }
+
+    50%{
+        transform: scale(1.1);
+    }
+
+    100%{
+        transform: scale(1);
+    }
+}
