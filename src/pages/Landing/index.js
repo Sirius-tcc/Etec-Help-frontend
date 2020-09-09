@@ -1,10 +1,10 @@
-import React from 'react';
+import React from 'react'
 import Logo from '../../assets/images/Logo.svg'
 import Help from '../../assets/images/help.svg'
 import Study from '../../assets/images/study.svg'
 import Teacher from '../../assets/images/teacher-completed.svg'
 
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 
 
 import './styles.css'
@@ -25,7 +25,7 @@ function Landing(){
                     Estudar
                 </Link>
 
-                <Link to="#" className="help">
+                <Link to="/login-helper" className="help">
                     <img src={Help} alt="Ajudar"/>
                     Ajudar
                 </Link>
