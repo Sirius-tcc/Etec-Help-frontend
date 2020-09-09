@@ -39,12 +39,7 @@
     margin-bottom: 24px;
     width: 200px;
     height: 200px;
-    animation-duration: 2.5s;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: infinite;
-    animation-fill-mode: none;
-    animation-play-state: running;
-    animation-name: flutter;
+    animation: flutter infinite ease-in-out 2.5s;
 }
 
 
@@ -58,14 +53,8 @@
 
 .teacher-image{
     grid-area: teacher;
-    animation-duration: 3s;
-    animation-timing-function: ease-in-out;
-    animation-delay: 2s;
-    animation-iteration-count: infinite;
-    animation-direction: normal;
-    animation-fill-mode: none;
-    animation-play-state: running;
-    animation-name: flutter-teacher;
+    animation: flutter-teacher ease-in-out 3s infinite;
+    animation-delay: 1s;
 }   
 
 .buttons-container{
@@ -88,7 +77,7 @@
     text-decoration: none;
     color: var(--color-text-light);
     opacity: 0.8;
-    transition: opacity 0.5s;
+    transition: opacity 1s;
     
 
 }
