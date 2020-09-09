@@ -68,7 +68,8 @@ body,
 input,
 button,
 textarea{
-    font: 500 16px 'Poppins', sans-serif;
+    font: 16px 'Poppins', sans-serif;
+    font-weight: 300;
     color: var(--color-text-light);
 }
 
