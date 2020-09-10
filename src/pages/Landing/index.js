@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom'
 
 import './styles.css'
 import './responsive.css'
+import './animation.css'
 
 
 function Landing(){
