@@ -108,20 +108,3 @@
 .buttons-container a.help:hover{
     opacity: 1;
 }
-
-
-
-
-@keyframes flutter-teacher{
-    0% {
-        transform: translatey(0px);
-    }
-    50% {
-        transform: translatey(-5px);
-    }
-    100% {
-        transform: translatey(0px);
-    }
-}
-
-
