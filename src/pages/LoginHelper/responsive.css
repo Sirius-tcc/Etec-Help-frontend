@@ -1,0 +1,151 @@
+@media (max-width:1210px){
+    #page-login-helper .login-container .form {
+        padding: 0 90px;
+
+    }
+}
+
+
+@media (max-width:1050px){
+
+    #page-login-helper .login-container .form {
+        padding: 0 80px;
+    }
+    
+}
+
+@media (max-width:980px){
+    #page-login-helper .login-container .form {
+        padding: 0 60px;
+    }
+    
+}
+
+@media (max-width:900px){
+    #page-login-helper .login-container {
+        width: 60%;
+    }
+
+    #page-login-helper .logo-apresentation{
+        padding: 0px;
+    }
+    
+}
+
+@media (max-width:800px){
+    #page-login-helper .login-container {
+        width: 80%;
+    }
+
+    #page-login-helper .login-container .form {
+        padding: 0 78px;
+    }
+
+    #page-login-helper .logo-apresentation .background{
+        background-image: none;
+    }
+
+    #page-login-helper .logo-apresentation .background .logo .img img{
+        width: 80px;
+    }
+
+    #page-login-helper .logo-apresentation .background .logo h2{
+        font-size: 18px;
+    }
+}
+
+@media (max-width:750px){
+    #page-login-helper .login-container {
+        width: 95%;
+    }
+}
+
+@media (max-width:700px){
+    #page-login-helper .logo-apresentation {
+        display: none;
+    }
+
+    #page-login-helper .login-container {
+        width: auto;
+    }
+    #page-login-helper .login-container .form {
+        padding: 0 158px;
+    }
+}
+
+@media (max-width:600px){
+    #page-login-helper .login-container .form {
+        padding: 0 108px;
+    }
+}
+
+@media (max-width:500px){
+    #page-login-helper .login-container .form {
+        padding: 0 68px;
+    }
+}
+
+@media (max-width:420px){
+    #page-login-helper .login-container .form{
+        margin-bottom: 80px;
+    }
+    #page-login-helper .login-container .back{
+        margin-left: 15px;
+
+    }
+
+    #page-login-helper .login-container .back img{
+        width: 55px;
+    }
+
+    #page-login-helper .login-container .form {
+        padding: 0 55px;
+    }
+
+
+    #page-login-helper .login-container .form form .login-features{
+        display: flex;
+        flex-direction: column;
+    }
+
+    #page-login-helper .login-container .form form .login-features .rememberMe{
+        justify-content: flex-start;
+    }
+
+    #page-login-helper .login-container .form form .login-features .rememberMe:first-child{
+        margin-bottom: 18px;
+    }
+
+}
+
+
+@media (max-width:350px){
+    #page-login-helper .login-container .form {
+        padding: 0 40px;
+    }
+}
+
+
+@media (max-width:300px){
+    #page-login-helper .login-container .form {
+        padding: 0 30px;
+    }
+
+
+    #page-login-helper .login-container .form form .register-container {
+        flex-direction: column;
+    }
+    
+
+    #page-login-helper .login-container .form form .register-container .rememberMe{
+        flex-wrap: wrap;
+    }
+    
+    #page-login-helper .login-container .form form .register-container span.free{
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        margin-top: 30px;
+    }
+}
+
