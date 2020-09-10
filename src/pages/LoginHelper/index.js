@@ -9,27 +9,18 @@ import Button from '../../components/Button'
 
 import './styles.css'
 import './responsive.css'
+import ImageApresentation from '../../components/ImageApresentation'
 
 
 
 function LoginHelper(){
     return(
         <div id="page-login-helper">
-            <section className="logo-apresentation">
+            <ImageApresentation text="Compartilhe todo o seu conhecimento com outros alunos">
 
-                <div className="background">
 
-                    <div className="logo">
-
-                        <div className="img">
-                            <img src={Logo} alt="Etec-Help"/>
-                        </div>
-
-                        <h2>Compartilhe todo o seu conhecimento com outros alunos</h2>
-                    </div>
-                </div>
-
-            </section>
+                <img src={Logo}  width="100" alt="Logo etec help"/>
+            </ImageApresentation>
 
 
             <section className="login-container">
@@ -44,9 +35,9 @@ function LoginHelper(){
                     <form>
                         <h1>Fazer login</h1>
 
-                        <InputLogin first={ true }  name="email" placeholder="Email" />
+                        <InputLogin first name="email" placeholder="Email" />
 
-                        <InputLogin last={ true }  name="password" placeholder="Senha" type="password"/>
+                        <InputLogin last name="password" placeholder="Senha" type="password"/>
 
 
                         <div className="login-features">
@@ -71,7 +62,7 @@ function LoginHelper(){
                             <div className="register">
                                 <span>Não tem conta?</span>
 
-                                <Link to="#">
+                                <Link to="/register-helper">
                                     Cadastre-se
                                 </Link>
                             </div>
