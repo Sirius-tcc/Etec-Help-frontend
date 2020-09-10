@@ -34,7 +34,6 @@
     display: flex;
     justify-content: center;
     align-content: center;
-
 }
 
 #page-login-helper .logo-apresentation .background .logo {
@@ -70,21 +69,25 @@
     background-color: var(--color-background);
     display: flex;
     flex-direction: column;
+    overflow: scroll;
 }
 
 
 #page-login-helper .login-container .back{
     margin-left: 40px;
     margin-top: 25px;
+    margin-bottom: 30px;
 }
 
 #page-login-helper .login-container .form{
+    max-width: 680px;
     padding: 0 135px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-content: center;
     height: 100%;
+    
 }
 
 #page-login-helper .login-container .form form h1{
@@ -95,9 +98,8 @@
     margin-bottom: 30px;
 }
 #page-login-helper .login-container .form form .login-features{
-    margin: 35px  0;
-
     display: flex;
+    margin: 35px  0;
     justify-content: space-between;
     align-content: center;
 }
@@ -109,11 +111,14 @@
 
 #page-login-helper .login-container .form form .login-features .rememberMe span{
     margin-left: 10px;
+    font-size: 14px;
 }
 
 #page-login-helper .login-container .form form .login-features a{
     text-decoration: none;
     color: var(--color-text-dark);
+    font-size: 14px;
+
 }
 
 #page-login-helper .login-container .form form .register-container {
