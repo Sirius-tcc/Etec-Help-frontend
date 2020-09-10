@@ -5,11 +5,10 @@ import './styles.css'
 
 
 
-function InputLogin({ first=false,last=false, name, ...rest }) {
+function InputLogin({ first=false, last=false, name, ...rest }) {
 
-    var classProperty = !first&&!last?"radius":""
 
-    classProperty += first?'radius-first':"" 
+    let classProperty = first?'radius-first':"" 
 
     classProperty += last?'radius-last':""
 
@@ -18,8 +17,9 @@ function InputLogin({ first=false,last=false, name, ...rest }) {
 
     
     return(
-        <input className={ classProperty } id={ name } type="text"  {...rest}/>
+        <input className={ classProperty } id={ name }  {...rest}/>
     );
+    
 }
 
 export default InputLogin
