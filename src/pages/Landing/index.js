@@ -8,6 +8,8 @@ import { Link } from 'react-router-dom'
 
 
 import './styles.css'
+import './responsive.css'
+
 
 function Landing(){
     return(

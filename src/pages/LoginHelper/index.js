@@ -8,6 +8,8 @@ import CheckBox from '../../components/CheckBox'
 import Button from '../../components/Button'
 
 import './styles.css'
+import './responsive.css'
+
 
 
 function LoginHelper(){
@@ -54,9 +56,11 @@ function LoginHelper(){
                                 <span>Lembrar-me</span>
                             </div>
 
-                            <Link to="#">
-                                Esqueci minha senha
-                            </Link>
+                            <div className="rememberMe">
+                                <Link to="#">
+                                    Esqueci minha senha
+                                </Link>
+                            </div>
                             
                         </div>
 
@@ -72,7 +76,7 @@ function LoginHelper(){
                                 </Link>
                             </div>
 
-                            <span>
+                            <span className="free">
                                 É de graça
                                 <img src={ Heart } alt=""/>
                             </span>
