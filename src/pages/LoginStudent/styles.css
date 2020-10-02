@@ -1,0 +1,84 @@
+
+#page-login-student{
+    display: flex;
+    width: 100vw;
+    height: 100vh;    
+    
+}
+
+
+
+#page-login-student .login-container .form form .login-features{
+    display: flex;
+    margin: 35px  0;
+    justify-content: space-between;
+    align-content: center;
+}
+#page-login-student .login-container .form form .login-features .rememberMe {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#page-login-student .login-container .form form .login-features .rememberMe span{
+    margin-left: 10px;
+    font-size: 14px;
+}
+
+#page-login-student .login-container .form form .login-features a{
+    text-decoration: none;
+    color: var(--color-text-dark);
+    font-size: 14px;
+
+}
+
+#page-login-student .login-container .form form .register-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 50px;
+    margin-top: 30px;
+
+}
+
+#page-login-student .login-container .form form .register-container .register{
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+}
+
+#page-login-student .login-container .form form .register-container .register span{
+    color: var(--color-text-dark);
+    font-weight: normal;
+    margin-bottom: 8px;
+    font-size: 16px;
+
+}
+
+#page-login-student .login-container .form form .register-container .register a{
+
+    text-decoration: none;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--color-green);
+}
+
+#page-login-student .login-container .form form .register-container span{
+    color: var(--color-text-dark);
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+
+}
+
+#page-login-student .login-container .form form .register-container span img{
+    margin-left: 6px;
+    height: auto;
+}
+
+
+
+#page-login-student .logo-apresentation .background .logo  h2{
+    margin:0 0 0 30px;
+}

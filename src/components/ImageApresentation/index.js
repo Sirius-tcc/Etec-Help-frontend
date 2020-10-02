@@ -1,7 +1,7 @@
 import React from 'react'
 import './styles.css'
 
-function ImageApresentation ({text, children}){
+function ImageApresentation ({text, text_above, children}){
 
 
 
@@ -11,6 +11,7 @@ function ImageApresentation ({text, children}){
             <div className="background">
 
                 <div className="logo">
+                    <h2>{ text_above }</h2>
 
                     <div className="img">
                         { children }

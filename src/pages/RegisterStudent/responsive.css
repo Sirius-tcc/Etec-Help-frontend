@@ -1,0 +1,188 @@
+@media (max-width:1332px){
+    #page-register-student .register-content .form{
+        padding: 0 110px;
+    }
+}
+
+@media (max-width:1200px){
+    #page-register-student .register-content .form{
+        padding: 0 90px;
+    }
+
+    #page-register-student .register-content a img{
+        margin: 20px 15px;
+        
+    }
+}
+
+@media (max-width:1092px){
+    #page-register-student .register-content .form{
+        padding: 0 80px;
+    }
+}
+
+@media (max-width:1080px){
+    #page-register-student .register-content{
+        width: 50%;
+    }
+
+    #page-register-student .register-content a img{
+        width: 40px;        
+    }
+
+    #page-register-student .register-content .form{
+        padding: 0 70px;
+    }
+
+    #page-register-student .background {
+        background-repeat: repeat-y;
+    }
+}
+
+
+@media (max-width:970px){
+    #page-register-student .register-content{
+        width: 60%;
+    }
+
+}
+
+@media (max-width:900px){
+    #page-register-student .register-content{
+        width: 70%;
+    }
+    
+}
+
+@media (max-width:830px){
+    #page-register-student .register-content{
+        width: 75%;
+    }
+    
+}
+
+@media (max-width:800px){
+
+    #page-register-student .register-content{
+        width: 100%;
+    }
+
+    #page-register-student .register-content .form{
+        padding: 0 160px;
+    }
+
+    #page-register-student .register-content a img{
+        width: 50px;
+        margin: 30px;        
+    }
+
+    #page-register-student .logo-apresentation{
+        display: none;
+    }
+
+    
+}
+
+@media (max-width:630px){
+
+    #page-register-student .register-content .form{
+        padding: 0 135px;
+    }
+
+}
+
+@media (max-width:595px){
+
+    #page-register-student .register-content .form{
+        padding: 0 115px;
+    }
+}
+
+
+
+@media (max-width:570px){
+    #page-register-student .register-content{ 
+        display: flex;
+        flex-direction: column;
+    }
+
+    #page-register-student .register-content a img{
+        position: relative;
+        margin: 30px 0;
+        width: 90px;
+        margin-top: 160px;
+    }
+
+    #page-register-student .register-content a{
+        display: flex;
+        justify-content: center;
+    }
+
+    #page-register-student .register-content .form{
+        padding: 0 80px;
+        display: flex;
+        justify-content: center;
+    }
+
+    #page-register-student .register-content .form button{
+        margin: 40px 0;
+    }
+    
+}
+
+
+@media (max-width:460px){
+    #page-register-student .register-content .form{
+        padding: 0 60px;
+
+    }
+
+    #page-register-student .register-content .form h1{
+        font-size: 30px;
+        margin-bottom: 0px;
+    }
+
+    #page-register-student .register-content .form h2{
+        font-size: 15px;
+        line-height: 18px;
+        margin-bottom: 18px;
+    }
+
+    #page-register-student .register-content .form input{
+        height: 68px;
+    }
+
+
+
+}
+
+@media (max-width:410px){
+    #page-register-student .register-content .form{
+        padding: 0 45px;
+
+    }
+}
+
+@media (max-width:385px){
+    #page-register-student .register-content .form{
+        padding: 0 38px;
+
+    }
+}
+
+@media (max-width:350px){
+    #page-register-student .register-content .form{
+        padding: 0 30px;
+
+    }
+}
+
+@media (max-width:320px){
+    #page-register-student .register-content .form{
+        padding: 0 22px;
+    }
+
+    #page-register-student .register-content .form input{
+        height: 64px;
+    }
+}

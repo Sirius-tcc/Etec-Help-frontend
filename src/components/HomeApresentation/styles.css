@@ -1,0 +1,41 @@
+
+#home-apresentation section{
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+    background-color: var(--color-background-hover);
+    padding: 20px 10px;
+}
+
+#home-apresentation section .logo-and-title{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+
+#home-apresentation section .logo-and-title img{
+    width: 118px;
+    margin-bottom: 26px;
+    animation: flutter 3s  infinite ease-in-out;
+}
+
+#home-apresentation section .logo-and-title h2{
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 39px;
+    color: var(--color-text);
+    
+}
+
+#home-apresentation section .teacher img{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    width: 700px;
+}
+

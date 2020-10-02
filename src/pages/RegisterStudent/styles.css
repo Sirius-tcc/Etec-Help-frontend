@@ -1,0 +1,73 @@
+#page-register-student{
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-content: center;
+}
+
+
+#page-register-student .register-content{
+    width: 45%;
+    height: 100%;
+    background-color: var(--color-background);
+    overflow: scroll;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+
+#page-register-student .register-content a img{
+    right: 0;
+    width: 50px;
+    margin:30px 30px 0 0;
+    animation: flutter 2s infinite ease-in-out;
+    animation-delay: 1s;
+    position: absolute;
+}
+
+#page-register-student .register-content .form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    max-width: 700px;
+    padding: 0 135px;
+
+}
+
+#page-register-student .register-content .form  h1 {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 54px;
+    margin-bottom: 12px;
+}
+
+#page-register-student .register-content .form  h2   {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 30px;
+    color: var(--color-text-dark);
+
+}
+
+#page-register-student .register-content .form button{
+    margin-top: 40px;
+}
+
+
+
+
+
+#page-register-student .logo-apresentation .background .logo  h2{
+    margin:0 0 10px 50px;
+}
+
+.logo-apresentation .background .logo  h2 +h2{
+    display: none;
+}

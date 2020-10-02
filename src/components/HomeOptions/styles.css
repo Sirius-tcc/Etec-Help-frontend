@@ -1,0 +1,35 @@
+#home-options{
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    padding:  20px 75px;
+}
+
+#home-options .options{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#home-options .thanks{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#home-options .thanks h3{
+
+    width: 306px;
+    height: 54px;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 27px;
+
+}
+
+#home-options .thanks h3 img{
+    margin-left: 5px;
+    
+}
