@@ -1,0 +1,116 @@
+@media (max-width:880px){
+    #profile-helper section.form-content form{
+        margin-left: 35px;
+        margin-right: 35px;
+    }
+
+
+    #profile-helper section.form-content form .first-row{
+        display: flex;
+        flex-direction: column;
+        transition-duration: 1s;
+
+    }
+    #profile-helper section.form-content form .first-row #inputform{
+        width: 100%;
+        transition-duration: 1s;
+
+    }
+
+    #profile-helper section.form-content form .first-row #inputform + #inputform{
+        margin-top: 26px;
+
+    }
+
+    #profile-helper section.form-content form #inputform input{transition-duration: 1s;}
+
+    #profile-helper section.form-content form .subject-container{ transition-duration: 1s;}
+
+    #profile-helper section.form-content form .important-container{ transition-duration: 1s;}
+}
+
+@media (max-width:700px){
+    #profile-helper section.form-content form{
+        padding: 60px 40px;
+        border-radius: 20px;
+    }
+
+    #profile-helper section.form-content form .important-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #profile-helper section.form-content form .important-container .important-menssage{
+        margin-bottom: 40px;
+        transition-duration: 1s;
+
+    }
+
+    #profile-helper section.form-content form .important-container button{
+        width: 100%;
+    }
+
+}
+
+@media (max-width:550px){
+    #profile-helper section.form-content form h2{
+        font-size: 20px;
+    }
+
+    #profile-helper .profile-content{
+        margin-top: 100px;
+    }
+
+    #profile-helper section.form-content form .subject-container h3{
+        font-size: 14px;
+    }
+
+    #profile-helper section.form-content form #text-area .text-area { 
+        height: 150px;
+    }
+
+    #profile-helper section.form-content form .subject-container{
+        margin-top: 30px;
+    }
+
+    #profile-helper section.form-content form .important-container{
+        margin-top: 40px;
+    }
+}
+
+@media (max-width:447px){
+    #profile-helper section.form-content form{
+        padding: 40px 30px;
+        width: 350px;
+    }
+
+    #profile-helper section.form-content form #inputform input{
+        height: 48px;
+    }
+
+    #profile-helper section.form-content form .subject-container h3{
+        font-size: 12px;
+    }
+
+    #profile-helper section.form-content form #text-area .text-area { 
+        height: 100px;
+    }
+
+    
+}
+
+@media (max-width:400px){
+    #profile-helper section.form-content form{
+        width: 300px;
+    }
+}
+
+@media (max-width:360px){
+    #profile-helper section.form-content form{
+        width: 250px;
+    }
+
+    #profile-helper section.form-content form #inputform input{
+        height: 40px;
+    }
+}

@@ -1,46 +1,41 @@
-header.page-header{
+header.header{
     display: flex;
     justify-content: center;
     align-content: center;
+    align-items: center;
     background-color: var(--color-background-hover);
     width: 100vw;
     height: 64px;
-    margin-bottom: 2px;
+    position: fixed;
+    top: 0;
+    left: 0;    
 }
 
-.page-header .header-content{
+.header .header-content{
     display: flex;
     justify-content: space-between;
     align-content: center;
+    align-items: center;
     width: 80%;
 }
 
-.page-header .header-content .user{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+header.header .user{
+    display: none;
 }
-
-.page-header .header-content .user .user-img{
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: var(--color-grey-light);
-    margin-right: 10px;
-    cursor: pointer;
-}
-
-.page-header .header-content .user h2{
-    font-family: Poppins;
+.header .header-content .title h1{
+    font-family: Archivo, sans-serif;
     font-style: normal;
     font-weight: 500;
-    font-size: 14px;
-    line-height: 30px;
-    cursor: pointer;
-
+    font-size: 16px;
+    line-height: 17px;
+    text-align: center;
 }
 
-.page-header .header-content .logout{
+.header .header-content .back img{
+    width: 60px;
+}
+
+.header .header-content .logout{
     display: flex;
     justify-content: space-between;
     align-content: center;

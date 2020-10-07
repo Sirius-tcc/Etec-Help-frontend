@@ -1,0 +1,10 @@
+#classification{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+#classification img{
+    margin: 3px;
+}

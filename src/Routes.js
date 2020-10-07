@@ -6,6 +6,7 @@ import LoginStudent from './pages/LoginStudent';
 import RegisterHelper from './pages/RegisterHelper';
 import RegisterStudent from './pages/RegisterStudent';
 import HomeHelper from './pages/HomeHelper';
+import ProfileHelper from './pages/ProfileHelper';
 
 
 
@@ -18,6 +19,7 @@ function Routes(){
             <Route path="/login-student" exact component={ LoginStudent } />
             <Route path="/register-student" exact component={ RegisterStudent } />
             <Route path="/helper/home" exact component={ HomeHelper } />
+            <Route path="/helper/profile" exact component={ ProfileHelper } />
         </BrowserRouter>
     );
 }   

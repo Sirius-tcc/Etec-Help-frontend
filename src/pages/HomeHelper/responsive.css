@@ -64,12 +64,18 @@
 }
 
 @media (max-width:550px) {
-
+    #page-home-helper .home-content{
+        margin-top: 64px;
+    }
     #home-apresentation section .logo-and-title h2{
         font-size: 18px;
 
     }
 
+    #home-apresentation section {
+        border-radius: 0 0 45px 45px;
+        transition-duration: 1s;
+    }
     #home-options{
         display: flex;
         justify-content: center;

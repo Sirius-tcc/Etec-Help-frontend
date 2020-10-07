@@ -1,9 +1,9 @@
 import React from 'react';
 
 import './styles.css'
-function CheckBox(){
+function CheckBox({ isChecked, ...props }){
     return(
-        <input className="checkbox" type="checkbox" />     
+        <input className="checkbox" type="checkbox" { ...props } />     
     );
 }
 
