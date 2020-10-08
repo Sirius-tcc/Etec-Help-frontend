@@ -1,0 +1,19 @@
+#subject-videos{
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+}
+#subject-videos .flex{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+
+}
+
+#subject-videos .video-content{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 415px) ;
+    grid-gap: 16px;
+    margin: 40px 0;
+}

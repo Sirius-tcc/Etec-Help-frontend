@@ -7,6 +7,8 @@ import RegisterHelper from './pages/RegisterHelper';
 import RegisterStudent from './pages/RegisterStudent';
 import HomeHelper from './pages/HomeHelper';
 import ProfileHelper from './pages/ProfileHelper';
+import SubjectPage from './pages/SubjectPage';
+import SubjectVideos from './pages/SubjectVideos';
 
 
 
@@ -20,6 +22,8 @@ function Routes(){
             <Route path="/register-student" exact component={ RegisterStudent } />
             <Route path="/helper/home" exact component={ HomeHelper } />
             <Route path="/helper/profile" exact component={ ProfileHelper } />
+            <Route path="/subject/:subject" exact component={ SubjectPage } />
+            <Route path="/subject/:subject/:topic/videos" exact component={ SubjectVideos } />
         </BrowserRouter>
     );
 }   

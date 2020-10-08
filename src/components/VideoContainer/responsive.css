@@ -1,0 +1,13 @@
+@media(max-width:460px){
+    #video-container .content{
+        width: 250px;
+    }
+    
+    #video-container .content .video-info h3 {
+        font-size: 16px;
+    }
+
+    #video-container .content .video-info .views h4{
+        font-size: 12px;
+    }
+}

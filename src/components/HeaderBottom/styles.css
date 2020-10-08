@@ -1,0 +1,27 @@
+#header-bottom {
+    width: 100vw;
+    height: 255px;
+    background-color: var(--color-background-hover);
+    margin-top: 66px;
+}
+
+#header-bottom .header-bottom-content{
+    display: flex;
+    align-items: center;
+    margin: 0 300px;
+    padding-top: 30px;
+    transition-duration: 1s;
+
+}
+
+#header-bottom .header-bottom-content h2{
+    font-family: Archivo;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 42px;
+    width: 371px;
+    height: 84px;
+    transition-duration: 1s;
+
+}

@@ -22,7 +22,7 @@ function Header({ title, to, userName }){
         <header className={`header ${ show?"on":"" }`} >
             <div className="menu-item">
                 <div className="menu-toggle-back">
-                        <Link to={ to }>
+                        <Link to={ to } >
                             <img src={ BackIcon } alt=""/>
                         </Link>
                 </div>
@@ -57,10 +57,6 @@ function Header({ title, to, userName }){
                 </div>
 
             </div>
-
-            
-            
-
             
         </header>
     )
