@@ -1,7 +1,6 @@
 #subject-videos{
     width: 100vw;
     height: 100vh;
-    overflow-x: hidden;
 }
 #subject-videos .flex{
     display: flex;
@@ -14,6 +13,6 @@
 #subject-videos .video-content{
     display: grid;
     grid-template-columns: repeat(auto-fill, 415px) ;
-    grid-gap: 16px;
+    row-gap: 64px;
     margin: 40px 0;
 }

@@ -9,6 +9,7 @@ import HomeHelper from './pages/HomeHelper';
 import ProfileHelper from './pages/ProfileHelper';
 import SubjectPage from './pages/SubjectPage';
 import SubjectVideos from './pages/SubjectVideos';
+import VideoPlayer from './pages/VideoPlayer';
 
 
 
@@ -24,6 +25,7 @@ function Routes(){
             <Route path="/helper/profile" exact component={ ProfileHelper } />
             <Route path="/subject/:subject" exact component={ SubjectPage } />
             <Route path="/subject/:subject/:topic/videos" exact component={ SubjectVideos } />
+            <Route path="/subject/:subject/:topic/videos/:id" exact component={ VideoPlayer } />
         </BrowserRouter>
     );
 }   

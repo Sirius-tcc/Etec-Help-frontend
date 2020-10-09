@@ -19,10 +19,12 @@ function SubjectVideos(props){
             </div>
 
             <div className="video-content flex">
-                <VideoContainer img="aritmetica.svg" title="Soma, como somar" views="367" />
-                <VideoContainer img="aritmetica.svg" title="Subtrair , como subtrair" views="125" />
-                <VideoContainer img="aritmetica.svg" title="multiplicação, tudo sobre multiplicação" views="256" />
-                <VideoContainer img="aritmetica.svg" title="Divisão, como dividir" views="1000" />
+                <VideoContainer img="aritmetica.svg" title="Soma, como somar" views="367" id={1} subject={ subject } topic={ topic } />
+                <VideoContainer img="aritmetica.svg" title="Soma, como somar" views="367" id={2} subject={ subject } topic={ topic } />
+                <VideoContainer img="aritmetica.svg" title="Soma, como somar" views="367" id={3} subject={ subject } topic={ topic } />
+                <VideoContainer img="aritmetica.svg" title="Soma, como somar" views="367" id={4} subject={ subject } topic={ topic } />
+                <VideoContainer img="aritmetica.svg" title="Soma, como somar" views="367" id={5} subject={ subject } topic={ topic } />
+                
             </div>
 
         </div>

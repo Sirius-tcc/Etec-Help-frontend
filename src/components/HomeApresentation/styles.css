@@ -19,6 +19,8 @@
     width: 118px;
     margin-bottom: 26px;
     animation: flutter 3s  infinite ease-in-out;
+    transition-duration: 1s;
+
 }
 
 #home-apresentation section .logo-and-title h2{
@@ -28,6 +30,7 @@
     font-size: 26px;
     line-height: 39px;
     color: var(--color-text);
+    transition-duration: 1s;
     
 }
 
@@ -37,5 +40,6 @@
     align-content: center;
     align-items: center;
     width: 700px;
+    transition-duration: 1s;
 }
 

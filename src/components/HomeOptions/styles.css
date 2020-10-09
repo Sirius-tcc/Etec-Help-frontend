@@ -26,10 +26,12 @@
     font-weight: 500;
     font-size: 14px;
     line-height: 27px;
+    transition-duration: 1s;
+
 
 }
 
 #home-options .thanks h3 img{
     margin-left: 5px;
-    
+    transition-duration: 1s;
 }

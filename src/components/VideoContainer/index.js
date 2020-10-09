@@ -5,11 +5,11 @@ import { Link } from 'react-router-dom'
 import './styles.css'
 import './responsive.css'
 
-function VideoContainer({img, title, views}){
+function VideoContainer({img, title, views, subject, topic, id }){
     
     return(
         <div id="video-container">
-            <Link>
+            <Link to={`/subject/${subject}/${topic}/videos/${id}`}>
                 <div className="content">
                         <div className="thumbnail">
                             <img src={ require(`../../assets/images/${img}`) } alt=""/>
