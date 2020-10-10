@@ -1,0 +1,145 @@
+:root{
+    --width:  853px;
+    --height: 480px;
+    --title: 24px;
+    --desc-data: 16px;
+    --line-height: 42px;
+    --background: 160px;
+}
+
+@media(max-width: 890px){
+    #videos-player .video-page-content #ReactPlayer{
+        width: calc(var(--width) * 0.85);
+        height:calc(var(--height) * 0.85);
+    }
+
+    #videos-player .video-page-content .video-info{
+        width: calc(var(--width) * 0.85);
+    }
+
+    #videos-player .video-page-content .react-player__preview{
+        background-size: calc(var(--background) * 0.85) !important;
+    }
+}
+
+@media(max-width: 790px){
+    #videos-player .video-page-content #ReactPlayer{
+        width: calc(var(--width) * 0.7);
+        height:calc(var(--height) * 0.7);
+    }
+
+    #videos-player .video-page-content .video-info{
+        width: calc(var(--width) * 0.7);
+    }
+    #videos-player .video-page-content .react-player__preview{
+        background-size: calc(var(--background) * 0.7) !important;
+    }
+}
+
+@media(max-width: 660px){
+    #videos-player .video-page-content #ReactPlayer{
+        width: calc(var(--width) * 0.6);
+        height:calc(var(--height) * 0.6);
+    }
+
+    #videos-player .video-page-content .video-info{
+        width: calc(var(--width) * 0.6);
+    }
+
+    #videos-player .video-page-content .react-player__preview{
+        background-size: calc(var(--background) * 0.6) !important;
+    }
+}
+
+@media(max-width: 550px){
+    #videos-player .video-page-content{
+        padding-top: 45px;
+    }
+
+    #videos-player .video-page-content #ReactPlayer{
+        width: calc(var(--width) * 0.5);
+        height:calc(var(--height) * 0.5);
+    }
+
+    #videos-player .video-page-content .video-info{
+        width: calc(var(--width) * 0.5);
+    }
+
+    #videos-player .video-page-content .react-player__preview{
+        background-size: calc(var(--background) * 0.5) !important;
+    }
+
+    #videos-player .video-page-content .react-player__preview{
+        background-size: calc(var(--background) * 0.5) !important;
+    }
+
+    #videos-player .video-page-content .video-info .title-views-date h1{
+        font-size: calc(var(--title)  * .8);
+    }
+    #videos-player .video-page-content .video-info .title-views-date p {
+        font-size: calc(var(--desc-data)  * .8);
+    }
+
+    #videos-player .video-page-content .video-info h2{
+        font-size: calc(var(--desc-data)  * .8);
+        line-height: calc(var(--line-height)  * .8)
+    }
+}
+
+@media(max-width: 475px){
+    #videos-player .video-page-content #ReactPlayer{
+        width: calc(var(--width) * 0.4);
+        height:calc(var(--height) * 0.4);
+    }
+
+    #videos-player .video-page-content .video-info{
+        width: calc(var(--width) * 0.4);
+    }
+    #videos-player .video-page-content .react-player__preview{
+        background-size: calc(var(--background) * 0.4) !important;
+    }
+}
+
+@media(max-width: 390px){
+    #videos-player .video-page-content #ReactPlayer{
+        width: calc(var(--width) * 0.34);
+        height:calc(var(--height) * 0.34);
+    }
+
+    #videos-player .video-page-content .video-info{
+        width: calc(var(--width) * 0.34);
+    }
+
+    #videos-player .video-page-content .react-player__preview{
+        background-size: calc(var(--background) * 0.34) !important;
+    }
+
+    #videos-player .video-page-content .video-info .title-views-date h1{
+        font-size: calc(var(--title)  * .65);
+    }
+    #videos-player .video-page-content .video-info .title-views-date p {
+        font-size: calc(var(--desc-data)  * .65)
+    }
+
+    #videos-player .video-page-content .video-info h2{
+        font-size: calc(var(--desc-data)  * .65);
+        line-height: calc(var(--line-height)  * .65)
+
+
+    }
+}
+
+@media(max-width: 300px){
+    #videos-player .video-page-content #ReactPlayer{
+        width: calc(var(--width) * 0.3);
+        height:calc(var(--height) * 0.3);
+    }
+
+    #videos-player .video-page-content .react-player__preview{
+        background-size: calc(var(--background) * 0.3) !important;
+    }
+
+    #videos-player .video-page-content .video-info{
+        width: calc(var(--width) * 0.3);
+    }
+}

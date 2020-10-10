@@ -14,7 +14,7 @@ function SubjectVideos(props){
 
         <div id="subject-videos">
             <div className="header">
-                <Header to="/helper/home" title={ subject } userName="Tiago Luchtenberg"/>
+                <Header to={`/subject/${subject}`} title={ subject } userName="Tiago Luchtenberg"/>
                 <HeaderBottom title={ `Estes são os vídeos  sobre ${ topic.toLowerCase() }` }/>
             </div>
 

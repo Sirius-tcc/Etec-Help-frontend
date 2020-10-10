@@ -1,5 +1,5 @@
 #subject{
-    width: 100%;
+    width: auto;
     height: auto;
 }
 
@@ -8,7 +8,6 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    border: 1px solid #6BDC92;
     box-sizing: border-box;
     border-radius: 8px;
     padding: 3px 10px;
@@ -19,7 +18,6 @@
     width: 18px;
     height: 18px;
     border-radius: 50%;
-    background: #6BDC92;
 }
 
 #subject .box h2{
@@ -29,6 +27,5 @@
     font-size: 18px;
     text-align: center;
 
-    color: #6BDC92;
 
 }

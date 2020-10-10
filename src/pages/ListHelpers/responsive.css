@@ -1,0 +1,27 @@
+
+
+@media (max-width: 970px){
+    #list-hepers .filter-subject{
+        margin: 55px 105px;
+    }
+}
+
+@media (max-width: 550px){
+    #list-hepers .filter-subject{
+        margin: 45px;
+    }
+}
+
+@media (max-width: 496px){
+    #list-hepers .filter-subject{
+        margin: 10px 45px ;
+    }
+}
+
+@media (max-width: 329px){
+    #list-hepers .filter-subject{
+        margin: -10px 15px;
+    }
+}
+
+

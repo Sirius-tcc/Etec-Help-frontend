@@ -1,7 +1,8 @@
 import React from 'react'
 import HeaderHome from '../../components/HeaderHome'
 import HomeApresentation from '../../components/HomeApresentation'
-import HomeOptions from '../../components/HomeOptions'
+import Option from '../../components/Option'
+import Heart from '../../assets/images/heart.svg'
 
 
 import './styles.css'
@@ -10,11 +11,29 @@ import './responsive.css'
 function HomeHelper() {
     return(
         <div id="page-home-helper">
-            <HeaderHome/>
+            <HeaderHome
+                name="Tiago Luchtenberg"
+                type="Helper"
+            />
                 <div className="home-content">
                     <HomeApresentation/>
-                    <HomeOptions/>
-            </div>
+                    
+
+                    <div id="home-options">
+                        <div className="options">
+                            <Option image="chat.svg" title="Conecte no chat, e ajude os alunos" link="chat"/>
+                            <Option image="pie.svg" title="Matemática tópicos" link="/subject/Matemática"/>
+                            <Option image="hacker.svg" title="Programação tópicos" link="/subject/Programação"/>
+                        </div>
+
+                        <div className="thanks">
+                            <h3>
+                                Muito obrigado por compartilhar seu conhecimento
+                                <img src={ Heart } alt="coração"/> 
+                            </h3>
+                        </div>
+                    </div>
+                </div>
         </div>
         
        

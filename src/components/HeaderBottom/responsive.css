@@ -5,6 +5,9 @@
 }
 
 @media(max-width:550px){
+    #header-bottom .header-bottom-content {
+        flex-direction: column;
+    }
     #header-bottom .header-bottom-content h2{
         font-family: Archivo;
         font-style: normal;
@@ -12,7 +15,11 @@
         font-size: 26px;
         line-height: 32px;
         height: auto;
-        width: auto;
+        width: 100%;
+    }
+
+    #header-bottom .header-bottom-content h4{
+        margin-top: 10px;
     }
 
     #header-bottom .header-bottom-content{

@@ -1,0 +1,115 @@
+@media (max-width:1090px) {
+    #home-apresentation section .teacher img{
+        width: 500px;
+    }
+
+    #home-apresentation section .logo-and-title img{
+        width: 90px;
+    }
+}
+
+@media (max-width:1060px) {
+    #home-options{
+        padding:  20px 20px;
+    }
+
+}
+
+@media (max-width:915px) {
+    #home-apresentation section .logo-and-title h2{
+        font-size: 22px;
+
+    }
+
+
+    #home-options{
+        padding:  10px 10px;
+    }
+
+    #home-options .thanks h3{
+        width: 235px;
+    }
+   
+}
+
+
+@media (max-width:810px) {
+    #home-apresentation section .teacher img{
+        width: 350px;
+    }
+    #home-apresentation section .logo-and-title h2{
+        font-size: 20px;
+
+    }
+
+    #home-options{
+        flex-direction: column;
+    }
+    #home-options .thanks h3{
+        width: auto;
+        height: auto;
+        margin-top: 50px;
+    }
+}
+
+
+@media (max-width:660px) {
+    #home-apresentation section{
+        justify-content: center;
+    }
+
+    #home-apresentation section .teacher img{
+        display: none;
+    }
+}
+
+@media (max-width:550px) {
+    #page-home-helper .home-content{
+        margin-top: 64px;
+    }
+    #home-apresentation section .logo-and-title h2{
+        font-size: 18px;
+
+    }
+
+    #home-apresentation section {
+        border-radius: 0 0 45px 45px;
+        transition-duration: 1s;
+    }
+    #home-options{
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        padding:  20px 60px;
+    }
+    #home-options .options{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+
+    }
+
+    #home-options .options #option{
+        display: flex;
+        justify-content: center;
+        align-content: center;
+    }
+
+    #home-options .options #option .box{
+        margin: 0;
+    }
+
+    #home-options .thanks h3{
+        text-align: center;
+        font-size: 12px;
+        margin: 60px 0px;
+
+    }
+}
+
+@media (max-width:360px){
+    #home-options .options{
+        grid-template-columns: 1fr ;
+
+    }
+}

@@ -1,0 +1,11 @@
+#list-hepers{
+    width: 100vw;
+    height: 100vh;
+}
+
+#list-hepers .filter-subject{
+   
+    margin: 55px 300px;
+    padding-top: 30px;
+    transition-duration: 1s;
+}

@@ -1,0 +1,202 @@
+#profile-student{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+#profile-student .profile-content{
+    margin-top: 64px;
+    transition-duration: 1s;
+}
+#profile-student .profile-content .profile{
+    width: 100vw;
+    height: 465px;
+    padding-top: 25px;
+    background-image: url('../../assets/images/background-profile.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#profile-student .profile-content .profile .user{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+#profile-student .profile-content .profile .user .user-image{
+    width: 180px;
+    height: 180px;
+    background-color: var(--color-grey-light);
+    border-radius: 50%;
+}
+
+#profile-student .profile-content .profile .user .user-image #upload-photo{
+    opacity: 0;
+    position: absolute;
+    z-index: -1;
+}
+
+#profile-student .profile-content .profile .user .user-image .upload{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    background-color: var(--color-green-light);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-top: 118px;
+    margin-left: 142px;
+    
+}
+
+#profile-student .profile-content .profile .user .user-image .upload label {
+    cursor: pointer;
+}
+
+#profile-student .profile-content .profile .user .user-image .upload label img{
+    margin: 5px 0 0 2px;
+}
+
+
+
+#profile-student .profile-content .profile .user .name{
+    margin-top: 24px;
+}
+#profile-student .profile-content .profile .user .name h2{
+    font-family: Archivo;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 26px;
+    text-align: center;
+}
+
+#profile-student .profile-content .profile .user .subject-user{
+    margin-top: 24px;
+    width: 160px;
+}
+
+#profile-student .profile-content .profile .user .classification{
+    margin-top: 24px;
+}
+
+#profile-student section.form-content{
+    display: flex;
+    justify-content: center;
+    background-color: var(--color-background-hover);
+
+    width: 100vw;
+}
+
+#profile-student section.form-content form{
+    border-radius: 8px;
+    background-color: var(--color-primary);
+    padding: 60px;
+    border: 1px solid var(--color-grey-light);
+    width: 840px;
+    margin-top: -100px;
+    margin-bottom: 100px;
+    transition-duration: 1s;
+
+
+}
+
+#profile-student section.form-content form h2{
+    margin-bottom: 20px;
+    transition-duration: 1s;
+}
+
+#profile-student section.form-content form hr{
+    border: 1px solid var(--color-grey-light);
+}
+#profile-student section.form-content form .row{
+    margin-top: 26px;
+}
+
+
+#profile-student section.form-content form .first-row{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#profile-student section.form-content form .subject-container{
+    margin-top: 80px;
+}
+
+#profile-student section.form-content form .subject-container h3{
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    margin: 18px  0;
+    color: var(--color-text-dark);
+    transition-duration: 1s;
+
+
+}
+
+#profile-student section.form-content form .subject-container .subjects .subject{
+    display: flex;
+    align-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+
+#profile-student section.form-content form .subject-container .subjects .subject input{
+    margin-right: 10px;
+}
+
+#profile-student section.form-content form .subject-container .subjects .subject h4{
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 21px;
+    /* identical to box height */
+
+    text-align: center;
+
+    color: var(--color-text-light);
+}
+
+#profile-student section.form-content form .important-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 80px;
+}
+
+#profile-student section.form-content form .important-container button{
+    width: 200px;
+}
+
+#profile-student section.form-content form .important-container .important-menssage{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+#profile-student section.form-content form .important-container .important-menssage img{
+    margin-right: 18px;
+}
+
+#profile-student section.form-content form .important-container .important-menssage h4{
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 20px;
+}
+
+#profile-student section.form-content form .important-container button{ transition-duration: 1s; }

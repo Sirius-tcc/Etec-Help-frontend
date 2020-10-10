@@ -13,7 +13,7 @@ function SubjectPage(props){
     return(
         <div id="subject-page">
             <div className="header">
-                <Header to="/helper/home" title={ subject } userName="Tiago Luchtenberg"/>
+                <Header to="#" title={ subject } userName="Tiago Luchtenberg"/>
                 <HeaderBottom title={`Estes são os tópicos  de ${ subject.toLowerCase() }`}/>
             </div>
             

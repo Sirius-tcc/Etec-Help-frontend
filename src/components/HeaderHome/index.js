@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import './styles.css'
 import './responsive.css'
 
-function HeaderHome(){
+function HeaderHome({ name, type }){
     
     const [ show, setShow ] = useState(false)
 
@@ -24,12 +24,12 @@ function HeaderHome(){
             </div>
 
             <div className="header-content">
-                <Link to="/helper/profile" >
+                <Link to={`/${ type }/profile`} >
                     <div className="user">
                         <div className="user-img">
 
                         </div>
-                        <h2>Tiago Luchtenberg</h2>
+                        <h2>{ name }</h2>
                     </div>
                 </Link>
                 
