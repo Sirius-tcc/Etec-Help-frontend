@@ -9,3 +9,28 @@
     padding-top: 30px;
     transition-duration: 1s;
 }
+
+#list-hepers .list-helpers-containers{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 90px 0;
+}
+
+#list-hepers h6.results{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+    margin-bottom: 20px;
+    width: 100%;
+    
+
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 26px;
+}

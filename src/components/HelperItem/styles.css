@@ -1,0 +1,117 @@
+
+:root{
+    --width-helper: 734px; 
+}
+
+
+#helper-item {
+    width: var(--width-helper);
+    height: auto;
+    background-color: var(--color-primary);
+    border-radius: 8px;
+    border: 1px solid var(--color-grey-light );
+    cursor: default;
+    margin: 20px 0;
+    transition-duration: 1s;
+    overflow: hidden;
+}
+
+#helper-item .helper-content{
+    padding: 20px 40px;
+}
+
+#helper-item .helper-content .helper-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#helper-item .helper-content .helper-info .photo-name-subjects{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#helper-item .helper-content .helper-info .classification-helper{
+    transition-duration: 1s;
+}
+
+
+#helper-item .helper-content .helper-info .photo-name-subjects .helper-name-subject{
+    margin-left: 20px;
+}
+
+#helper-item .helper-content .helper-info .img-helper{
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    background-color: var(--color-grey-light);
+    overflow: hidden;
+}
+#helper-item .helper-content .helper-info .img-helper img{
+    width: 80px;
+    height: 80px;
+}
+
+#helper-item .helper-content .helper-info .photo-name-subjects .helper-name-subject h2.name-helper{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-family: Archivo;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    width: calc(var(--width-helper) * .4);
+    line-height: 25px;
+    margin-bottom: 10px;
+}
+#helper-item .helper-content .helper-info .subjects-helper{
+    display: flex;
+
+}
+
+#helper-item .helper-content .helper-info .subjects-helper #subject{
+    margin-right: 6px;
+}
+
+#helper-item .helper-content h4{
+    margin: 35px 0;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 26px;
+    color: var(--color-text-dark);
+}
+
+#helper-item hr{
+    width: 100%;
+    border: none;
+    background-color: var(--color-grey-light);
+    height: 1px;
+
+}
+
+#helper-item .contacts {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+}
+
+
+#helper-item .contacts  h5{
+    font-family: Poppins;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 25px;
+    color: var(--color-green-light);
+}
+
+#helper-item .contacts .contact-button{
+    width: 250px;
+    transition-duration: 1s;
+}
+
+
+
