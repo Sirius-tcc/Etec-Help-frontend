@@ -2,12 +2,13 @@ import React from 'react'
 
 import './styles.css'
 
-function Subject({ name, boxWidth , boxBoderRadius, circleWidth, fontSize , color }){
+function Subject({ name, boxWidth , boxBoderRadius, circleWidth, fontSize , color, padding }){
     
     const boxStyle = {
         border:`1px solid ${color}`,  
         width:boxWidth?`${boxWidth}`:'auto',
-        borderRadius: boxBoderRadius
+        borderRadius: boxBoderRadius,
+        padding: `${padding} 10px`
     }
 
     const circleStyle= {   

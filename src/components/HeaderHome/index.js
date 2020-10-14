@@ -4,8 +4,11 @@ import { Link } from 'react-router-dom'
 import './styles.css'
 import './responsive.css'
 
-function HeaderHome({ name, type }){
+function HeaderHome({ name, type, position, title }){
     
+
+
+
     const [ show, setShow ] = useState(false)
 
     const handleMenu = () => {
@@ -13,9 +16,12 @@ function HeaderHome({ name, type }){
     }
 
     document.body.style.overflow =  show?"hidden":"initial";
+    const stylesCss = {position}
     
+
+
     return(
-        <header className={`page-header ${ show?"on":"" }`} >
+        <header className={`page-header ${ show?"on":"" }`} style ={stylesCss} >
 
              <div className="menu-toggle" onClick={ handleMenu }>
                     <div className="one"></div>
@@ -33,14 +39,13 @@ function HeaderHome({ name, type }){
                     </div>
                 </Link>
                 
-
+                {title?<h1 className="title">{title}</h1>:<></>}
+                
                 <div className="logout">
                     <img src={ LogOut } alt="sair"/>
                 </div>
 
             </div>
-
-            
         </header>
     )
 }

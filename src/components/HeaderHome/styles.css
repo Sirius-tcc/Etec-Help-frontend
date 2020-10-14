@@ -4,7 +4,7 @@ header.page-header{
     align-content: center;
     align-items: center;
     background-color: var(--color-background-hover);
-    width: 100vw;
+    width: 100%;
     height: 64px;
     z-index: 2;
     position: fixed;
@@ -15,7 +15,18 @@ header.page-header{
     justify-content: space-between;
     align-content: center;
     width: 80%;
+    align-items: center;
 }
+
+.page-header .header-content h1.title{
+    font-family: Archivo;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    margin: 0 8px;
+
+}
+
 
 .page-header .header-content .user{
     display: flex;
@@ -37,10 +48,7 @@ header.page-header{
     font-style: normal;
     font-weight: 500;
     font-size: 14px;
-    line-height: 30px;
     cursor: pointer;
-    
-
 }
 
 .page-header .header-content a{

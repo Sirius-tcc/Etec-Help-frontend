@@ -21,7 +21,7 @@ function HomeHelper() {
 
                     <div id="home-options">
                         <div className="options">
-                            <Option image="chat.svg" title="Conecte no chat, e ajude os alunos" link="chat"/>
+                            <Option image="chat.svg" title="Conecte no chat, e ajude os alunos" link="/chat"/>
                             <Option image="pie.svg" title="Matemática tópicos" link="/subject/Matemática"/>
                             <Option image="hacker.svg" title="Programação tópicos" link="/subject/Programação"/>
                         </div>

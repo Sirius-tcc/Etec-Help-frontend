@@ -1,0 +1,107 @@
+#chat{
+    width: 100vw;
+    height: 100%;
+    position: relative;
+}
+
+#chat .chat-content-grid{
+    display: grid;
+
+    grid-template-columns: 72px 256px auto;
+
+    grid-template-rows: 64px auto ;
+
+    grid-template-areas: 
+        "back whoIsend header"
+        "listChat listHelps chat";
+
+    gap: 1.5px;
+    
+    height: 100vh;
+}
+
+
+#chat .chat-content-grid #goback{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-background-hover);
+    grid-area: back;
+}
+
+#chat .chat-content-grid #goback img{
+    width: 48px;
+}
+
+#chat .chat-content-grid #received-my-message{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    background-color: var(--color-background-hover);
+}
+
+#chat .chat-content-grid #received-my-message .container{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 0 20px;
+}
+
+
+#chat .chat-content-grid #received-my-message .container .name {
+    width: 100%;
+    overflow: hidden;
+    
+}
+#chat .chat-content-grid #received-my-message .container .name h2{
+    font-family: Archivo;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 17px;
+    margin-bottom: 6px;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#chat .chat-content-grid #header-chat{
+    position: relative;
+
+}
+
+#chat .chat-content-grid #listChat{
+    
+    padding: 20px 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    
+    height: 100%;
+    width: 100%;
+    background-color: var(--color-background-hover);
+
+    grid-area: listChat;
+
+    overflow-y: scroll;
+}
+
+#chat .chat-content-grid #listChat::-webkit-scrollbar { 
+    display: none; 
+}
+
+#chat .chat-content-grid #listHelps{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    grid-area: listHelps;
+
+    background-color: var(--color-background-hover);
+}
+
