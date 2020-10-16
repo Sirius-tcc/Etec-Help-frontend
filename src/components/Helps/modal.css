@@ -1,0 +1,110 @@
+
+
+#showHelp{
+    position: absolute;
+    top: 50%;  /* position the top  edge of the element at the middle of the parent */
+    left: 50%; /* position the left edge of the element at the middle of the parent */
+
+    transform: translate(-50%, -50%); /* This is a shorthand of
+                                         translateX(-50%) and translateY(-50%) */
+
+    z-index: 11;
+    transition-duration: 1s;
+}
+
+#showHelp .background{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+#showHelp .background .close{
+    right: 20px;
+    top: 30px;
+    padding: 2px;
+    width: 40px;
+    height: auto;
+
+    position: absolute;
+    cursor: pointer;
+}
+
+#showHelp .background .close:after {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%,-50%);
+        -moz-transform: translate(-50%,-50%);
+        -ms-transform: translate(-50%,-50%);
+        -o-transform: translate(-50%,-50%);
+        transform: translate(-50%,-50%);
+        color: var(--color-green);
+        font-size: 60px;
+        content: "\d7";
+}
+
+
+#showHelp .background .helper-info-container{
+    width: 800px;
+    height: 400px;
+    border-radius: 20px;
+    background-color:  var(--color-background);
+    position: relative;
+
+    border: 15px solid var(--color-background);
+
+    overflow-x: hidden;
+    overflow-y: hidden;
+    padding: 10px 40px;
+
+    padding-right: 8px;
+
+    position: absolute;
+    z-index: 12;
+}
+
+
+#showHelp .background .helper-info-container:hover{
+    overflow-y: scroll;
+    padding-right: 0px;
+
+}
+
+#showHelp .background .helper-info-container .content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#showHelp .background .helper-info-container .content h1{
+    margin-bottom: 18px;
+}
+
+
+#showHelp .background .helper-info-container .content .body .row{
+    margin-bottom: 20px;
+
+}
+#showHelp .background .helper-info-container .content .body .row h3{
+    font-size: 22px;
+    margin-bottom: 5px;
+}
+
+#showHelp .background .helper-info-container .content .body .row span{
+    font-family: Poppins;
+    color: var(--color-text-dark);
+    font-size: 18px;
+    align-self: flex-start;
+}
+
+
+#showHelp .background .helper-info-container .content .body .row span.span-stars{
+    display: flex;
+    align-content: center;
+    justify-content: flex-start;
+}

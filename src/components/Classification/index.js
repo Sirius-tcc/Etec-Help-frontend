@@ -13,11 +13,10 @@ function Classification({ classification, width }){
         let stars = [];
 
         for (let i = 0; i < starsNumber; i++) {
-          stars.push(<img src={ Star } style={ starWidth } alt="estrela"/>);
+          stars.push(<img key={ i } src={ Star } style={ starWidth } alt="estrela"/>);
         }
         return stars;
       };
-
 
     return(
         <div id="classification">

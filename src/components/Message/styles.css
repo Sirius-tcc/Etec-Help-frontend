@@ -1,0 +1,84 @@
+#message{
+    width: 100%;
+
+    padding: 4px 40px;
+    margin: 6px 0;
+}
+
+#message .message {
+    display: flex;
+    width: 100%; 
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#message .message .photo-user{
+    align-self: flex-start;
+    width: 40px;
+    height:  40px;
+    margin-right: 16px;
+}
+
+#message .message .photo-user img{
+    width: 40px;
+    height:  40px;
+    border-radius: 50%;
+
+}
+
+#message .message .other-menssage{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+
+    flex-direction: column;  
+    width: 100%;
+}
+
+#message .message .other-menssage .message-info{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#message .message .other-menssage .message-info .name{
+    margin-right: 10px;
+}
+
+
+#message .message .other-menssage .message-info .name h2{
+    font-family: Archivo;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+
+    text-align: center;
+}
+
+
+#message .message .other-menssage .message-info .time-hour span {
+    font-family: Archivo;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 13px;
+
+    text-align: center;
+    color: var(--color-text-dark);
+}
+
+
+#message .message .other-menssage .menssage-words{
+    width: 100%;
+    margin-top: 2px;
+}
+
+
+#message .message .other-menssage .menssage-words p{
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 20px;
+    width: 100%;
+}

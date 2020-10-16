@@ -1,0 +1,38 @@
+#send-menssage{
+    align-self: center;
+    bottom: 20px;
+    width: 95%;
+    margin: 18px 0;
+}
+
+#send-menssage .send-menssage{
+    position: relative;
+    width: 100%;
+}
+
+#send-menssage .send-menssage .input{
+    width: 100%;
+
+    outline: none;
+    border: none;
+
+    background-color: var(--color-primary);
+    border-radius: 8px;
+    height: 55px;
+    font-size: 16px;
+
+    padding: 10px 50px 16px;
+
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+}
+
+#send-menssage .send-menssage .schedule{
+    left: 17px;
+    bottom: 14px;
+    position: absolute;
+
+    cursor: pointer;
+}

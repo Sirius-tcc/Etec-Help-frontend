@@ -1,9 +1,7 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
 
 import LogOut from '../../assets/images/logout.svg'
-import BackIcon from '../../assets/images/back.svg'
-
+import GoBack from '../GoBack'
 
 import './styles.css'
 import './responsive.css'
@@ -17,14 +15,14 @@ function Header({ title, to, userName }){
     }
 
     document.body.style.overflow =  show?"hidden":"initial";
-    
+ 
+
+
     return(
         <header className={`header ${ show?"on":"" }`} >
             <div className="menu-item">
                 <div className="menu-toggle-back">
-                        <Link to={ to } >
-                            <img src={ BackIcon } alt=""/>
-                        </Link>
+                    <GoBack/>
                 </div>
 
                 <div className="menu-toggle-header" onClick={ handleMenu }>
@@ -37,9 +35,7 @@ function Header({ title, to, userName }){
             <div className="header-content">
 
                 <div className="back">
-                    <Link to={ to }>
-                        <img src={ BackIcon } alt=""/>
-                    </Link>
+                    <GoBack/>
                 </div>
                 
                 <div className="title">

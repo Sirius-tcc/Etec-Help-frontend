@@ -6,7 +6,6 @@
 
 #chat .chat-content-grid{
     display: grid;
-
     grid-template-columns: 72px 256px auto;
 
     grid-template-rows: 64px auto ;
@@ -46,9 +45,14 @@
     justify-content: center;
     align-items: flex-start;
     flex-direction: column;
-    padding: 0 20px;
+    padding: 0 10px;
 }
-
+#chat .chat-content-grid #received-my-message .container .subjects{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
 
 #chat .chat-content-grid #received-my-message .container .name {
     width: 100%;
@@ -95,13 +99,52 @@
 }
 
 #chat .chat-content-grid #listHelps{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
+    display: block;
+    align-self: center;
+    padding: 0px 6px;
 
+    
+    width: 100%;
+
+    overflow-y: hidden;
     grid-area: listHelps;
-
+    height: 100%;
     background-color: var(--color-background-hover);
+    transition: overflow 1s;
+
+}
+#chat .chat-content-grid #listHelps:hover{
+    overflow-y: scroll;
+
 }
 
+#chat .chat-content-grid #listHelps:hover::-webkit-scrollbar-track-piece  {
+    background-color: var( --color-background-hover);
+    height: 100%;
+}
+
+#chat .chat-content-grid #listHelps:hover::-webkit-scrollbar {
+    width: 5px;
+  }
+
+#chat .chat-content-grid #chat-content{
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    justify-content: center;
+    
+    position: relative;
+    grid-area: chat;
+}
+
+#chat .chat-content-grid #chat-content .chat{
+    display: flex;
+    justify-content: flex-start;
+    
+    align-items: center;
+    flex-direction: column;
+    overflow-y: auto;
+    width: 100%;
+    height: 100%;
+
+}

@@ -1,0 +1,96 @@
+#given-helps{
+    width: auto;
+    height: auto;
+    margin: 10px 0;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+#given-helps .content{
+    width: 235px;
+    min-height: 130px;
+    height: auto;
+    max-height: 180px;
+
+    background-color: var(--color-background);
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    padding: 16px 30px;
+}
+
+#given-helps .content .title h4{
+    font-family: Archivo;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+
+    margin-bottom: 2px;
+}
+
+#given-helps .content .body {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    
+}
+
+#given-helps .content .row{
+    width: 100%;
+    height: auto;
+    justify-self: center;
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+
+}
+
+#given-helps .content .row h5{
+
+    font-family: Archivo;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    margin-right: 12px;
+}
+
+#given-helps .content .row span{
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#given-helps .content .row span.span-class{
+    display: flex;
+    justify-content: flex-start;
+    margin-left: -4px;
+}   
+
+#given-helps .content .row span.status{
+    font-family: Archivo;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 15px;
+
+}
+
+#given-helps .content .row span.date{
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 16px;
+    color: var(--color-text-dark)
+}
+
+#given-helps .content .row span.subject{
+    font-family: Archivo;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+}

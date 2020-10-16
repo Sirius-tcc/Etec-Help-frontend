@@ -37,6 +37,8 @@ header.header .user{
     width: 60px;
 }
 
+
+
 .header .header-content .logout{
     display: flex;
     justify-content: space-between;
