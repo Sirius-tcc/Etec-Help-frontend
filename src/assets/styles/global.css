@@ -11,7 +11,7 @@
     --color-green-light: #6BDC92;
     --color-yellow-light: #FCFF70;
     --color-red-color: #FF9F9F;
-    --color-cancel-red-button: #FF9F9F;
+    --color-cancel-red-button: #FE5555;
     --color-blue: #065FD4;
     --color-white: #FFF;
     --color-background-icon: #339786;
@@ -29,7 +29,7 @@
   }
    
   ::-webkit-scrollbar-track-piece  {
-    background-color: var( --color-background);
+    background-color: var(--color-background);
     height: 100%;
   }
    

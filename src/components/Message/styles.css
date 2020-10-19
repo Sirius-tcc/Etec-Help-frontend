@@ -74,7 +74,8 @@
 }
 
 
-#message .message .other-menssage .menssage-words p{
+#message .message .other-menssage .menssage-words pre{
+    white-space:pre-wrap;
     font-family: Poppins;
     font-style: normal;
     font-weight: 300;

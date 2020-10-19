@@ -2,10 +2,10 @@ import React from 'react'
 
 import './styles.css'
 
-function Button({ buttonName }){
+function Button({ buttonName, ...rest }){
 
     return(
-        <button className="button">
+        <button className="button" {...rest }>
             { buttonName }
         </button>
     );

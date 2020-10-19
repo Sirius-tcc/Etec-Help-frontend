@@ -40,14 +40,14 @@ function random(maxNumber, zero=0){
 export default function listAllHelps(){
     let data = []
 
-    for(let i=0; i < 10; i++){
+    for(let i=0; i < 100; i++){
         data.push({ 
             who: 'Tiago',
             title:getText(lorem, random(60), random(60)),
             description: getText(lorem, random(lorem.length), random(lorem.length)),
             date:`${random(31)}/${random(12)}/2020`,
-            stars:random(5, 1),
-            status:random(2),
+            stars:random(6, 1),
+            status:random(3, 0),
             subject:"Programação",
             location:getText(lorem, random(20), random(20)),
         })

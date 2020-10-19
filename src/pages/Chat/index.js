@@ -10,6 +10,7 @@ import Message from '../../components/Message'
 
 
 import listAllChat from './testChatListTemp'
+import listAllMensages from './listAllMensages'
 import listAllHelps from './testChatListHelpTemp'
 
 
@@ -20,9 +21,13 @@ function Chat(){
 
     const listChat  = listAllChat()
     const listHelps = listAllHelps()
-    
+    const listMessages = listAllMensages()
 
-    console.log(listHelps)
+    const loadTotheBottom = () =>{
+        document.querySelector(".chat-").scrollTo(0, document.querySelector(".chat-").scrollHeight)
+    }
+
+
     return(
         <div id="chat">
 
@@ -114,26 +119,26 @@ function Chat(){
 
                 <div id="chat-content">
 
-                    <div className="chat">
-                            <Message/>
-                            <Message/>
-                            <Message/>
-                            <Message/>
-                            <Message/>
-                            <Message/>
-                            <Message/>
-                            <Message/>
-                            <Message/>
-                            <Message/>
-                            <Message/>
-                            <Message/>
-                    </div>
+                    <div className="chat-" onLoad={loadTotheBottom}>
 
-                    <SendMessage/>
+                        {listMessages.map((msg, index) =>(
+                            <Message
+                                key={index}
+                                img={ msg.img }
+                                name={ msg.name }
+                                message={ msg.message }
+                                data={ msg.data }
+                                hour={ msg.hour }
+                            />)
+                        )}
+                    </div>
+                    
+                    <SendMessage />
                 </div>
 
             </div>
         </div>
+
     )
 }
 

@@ -85,6 +85,9 @@
     margin-bottom: 18px;
 }
 
+#showHelp .background .helper-info-container .content .body {
+    width: 100%;
+}
 
 #showHelp .background .helper-info-container .content .body .row{
     margin-bottom: 20px;

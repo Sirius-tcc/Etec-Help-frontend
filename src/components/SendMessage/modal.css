@@ -1,0 +1,116 @@
+#helper-schedule{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    z-index: 12;
+    background-color: rgba(0, 0, 0, 0.8);
+    top: 50%;  
+    left: 50%; 
+
+    transform: translate(-50%, -50%); 
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+#helper-schedule .schedule{
+    width: 800px;
+    height: 90%;
+    border-radius: 10px;
+    padding: 30px 45px;
+    background-color: var(--color-primary);
+    overflow-y: hidden;
+    border: 20px solid  var(--color-primary);
+    padding-right: 52px;
+}
+#helper-schedule .schedule:hover{
+    padding-right: 45px;
+    overflow-y: scroll;
+}
+
+#helper-schedule .schedule .close{
+    right: 20px;
+    top: 30px;
+    padding: 2px;
+    width: 40px;
+    height: auto;
+
+    position: absolute;
+    cursor: pointer;
+}
+
+
+#helper-schedule .schedule .close:after{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    -o-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    color: var(--color-green);
+    font-size: 60px;
+    content: "\d7";
+}
+
+#helper-schedule .schedule::-webkit-scrollbar-track-piece  {
+    background-color: var(--color-primary);
+    height: 100%;
+}
+
+#helper-schedule .schedule::-webkit-scrollbar-thumb{
+    background-color: var(--color-background);
+}
+
+
+#helper-schedule .schedule .title{
+    margin-bottom: 20px;
+}
+
+#helper-schedule .schedule .title h2{
+    font-family: Archivo;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 26px;
+}
+
+#helper-schedule .schedule hr{
+    border: 1px solid var(--color-grey-light);
+}
+
+
+#helper-schedule .schedule .row{
+    display: flex;
+    align-items: center;
+    margin: 24px 0;
+}
+
+#helper-schedule .schedule .row #inputform{
+    width: 100%;
+}
+#helper-schedule .schedule .row #text-area{
+    width: 100%;
+}
+#helper-schedule .schedule .two-inputs{
+    justify-content: space-between;
+}
+
+#helper-schedule .schedule .two-inputs #inputform {
+    width: 48% ;
+}
+
+#helper-schedule .schedule .two-inputs #select{
+    width: 48%
+}
+
+#helper-schedule .schedule .buttons{
+    margin-top: 10px;
+}
+
+#helper-schedule .schedule .buttons button{
+
+    width: 100%;
+}

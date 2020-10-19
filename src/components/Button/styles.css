@@ -6,12 +6,12 @@
     background-color: var(--color-green);
     font-family: Archivo;
     font-weight: 500;
-    opacity: 0.8;
     cursor: pointer;
-    transition: opacity 0.5s;
+    transition: opacity 0.8s;
 }
 
 .button:hover{
-    opacity: 1;
+    opacity: 0.8;
+
 }
 
