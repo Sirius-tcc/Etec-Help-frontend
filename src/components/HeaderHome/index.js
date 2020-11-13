@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 import LogOut from '../../assets/images/logout.svg'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import './styles.css'
 import './responsive.css'
 
-function HeaderHome({ name, type, position, title }){
+function HeaderHome({ name, type, position, title, img }){
     
 
-
+    const { push } =  useHistory()
 
     const [ show, setShow ] = useState(false)
 
@@ -22,7 +22,6 @@ function HeaderHome({ name, type, position, title }){
 
     return(
         <header className={`page-header ${ show?"on":"" }`} style ={stylesCss} >
-
              <div className="menu-toggle" onClick={ handleMenu }>
                     <div className="one"></div>
                     <div className="two"></div>
@@ -33,7 +32,7 @@ function HeaderHome({ name, type, position, title }){
                 <Link to={`/${ type }/profile`} >
                     <div className="user">
                         <div className="user-img">
-
+                            {img ? <img src={ img } alt={ name } width={'100%'}/> : <></>}
                         </div>
                         <h2>{ name }</h2>
                     </div>
@@ -41,7 +40,10 @@ function HeaderHome({ name, type, position, title }){
                 
                 {title?<h1 className="title">{title}</h1>:<></>}
                 
-                <div className="logout">
+                <div className="logout" onClick={() => {
+                    localStorage.removeItem('app-token')
+                    push('/')
+                }}>
                     <img src={ LogOut } alt="sair"/>
                 </div>
 

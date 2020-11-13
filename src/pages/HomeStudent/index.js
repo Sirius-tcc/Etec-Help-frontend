@@ -1,20 +1,39 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import HeaderHome from '../../components/HeaderHome'
 import HomeApresentation from '../../components/HomeApresentation'
 import Option from '../../components/Option'
 import Heart from '../../assets/images/heart.svg'
-
+import api from '../../services/api'
+import { getUserId, getTypeUser } from '../../scripts/getTokenData'
 
 
 import './styles.css'
 import './responsive.css'
 
 function HomeStudent() {
+
+    const [ user, setUser ] = useState({})
+
+    useEffect(() => {
+        async function fetchStudent(){
+
+            const id = getUserId(localStorage.getItem('app-token'))
+            const response = await api.get(`/student/show/${id}`)
+
+            setUser(response.data.data[0])
+        }
+
+
+        fetchStudent()
+    }, [])
+
+
     return(
         <div id="page-home-helper">
             <HeaderHome
-                name="Beatriz Vitória"
-                type="student"
+                 name={ !!user.name ? `${user.name} ${user.surname}` : ''}
+                 type="student"
+                 img={ user.photo }
             />
 
 

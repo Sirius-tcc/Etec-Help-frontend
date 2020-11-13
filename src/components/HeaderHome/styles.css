@@ -43,6 +43,10 @@ header.page-header{
     cursor: pointer;
 }
 
+.page-header .header-content .user .user-img img{
+    border-radius: 50%;
+}
+
 .page-header .header-content .user h2{
     font-family: Poppins;
     font-style: normal;
