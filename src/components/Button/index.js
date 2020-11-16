@@ -2,12 +2,22 @@ import React from 'react'
 
 import './styles.css'
 
-function Button({ buttonName, ...rest }){
+function Button({ buttonName, send=true, ...rest }){
 
     return(
-        <button className="button" {...rest }>
-            { buttonName }
-        </button>
+        
+        send?
+            (
+                <button className="button" {...rest }>
+                    { buttonName }
+                </button>
+            ) 
+        :   
+            (
+                <button className="button opacity" disabled {...rest }>
+                    { buttonName }
+                </button>
+            )
     );
     
 }
