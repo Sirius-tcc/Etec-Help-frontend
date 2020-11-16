@@ -15,16 +15,14 @@ import VideoPlayer from '../pages/VideoPlayer';
 import ProfileStudent from '../pages/ProfileStudent';
 import ListHelpers from '../pages/ListHelpers';
 import Chat from '../pages/Chat';
-
-
-
 import PrivateRoute from './PrivateRoute'
+import HomeRoute from './HomeRoute'
 
 function Routes(){
     return (
         <BrowserRouter>
             <Switch>
-                <Route path="/" exact component={ Landing } />
+                <HomeRoute path="/" exact component={ Landing } />
                 <Route path="/login-helper" exact component={ LoginHelper } />
                 <Route path="/register-helper" exact component={ RegisterHelper } />
                 <Route path="/login-student" exact component={ LoginStudent } />
