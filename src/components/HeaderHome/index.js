@@ -4,6 +4,9 @@ import { Link, useHistory } from 'react-router-dom'
 import './styles.css'
 import './responsive.css'
 
+
+
+
 function HeaderHome({ name, type, position, title, img }){
     
 
