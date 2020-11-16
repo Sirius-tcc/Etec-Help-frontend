@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 import Logo from '../../assets/images/Logo.svg'
 import Heart from '../../assets/images/heart.svg'
 import Back from '../../assets/images/back.svg'
