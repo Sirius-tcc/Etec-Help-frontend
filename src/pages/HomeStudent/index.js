@@ -4,7 +4,7 @@ import HomeApresentation from '../../components/HomeApresentation'
 import Option from '../../components/Option'
 import Heart from '../../assets/images/heart.svg'
 import api from '../../services/api'
-import { getUserId, getTypeUser } from '../../scripts/getTokenData'
+import { getUserId} from '../../scripts/getTokenData'
 
 
 import './styles.css'
