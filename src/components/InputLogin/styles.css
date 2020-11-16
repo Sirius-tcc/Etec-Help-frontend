@@ -17,6 +17,10 @@
     border-radius: 0 0 8px 8px ;
 }
 
+
+.error{
+    border: 1.5px solid var(--color-cancel-red-button);
+}
 /*.radius{
     border-radius: 8px;
 }*/
