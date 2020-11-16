@@ -5,10 +5,6 @@ import api from '../services/api';
 
 
 
-
-
-
-
 function PrivateRoute(props){
     const token = localStorage.getItem('app-token')
 
@@ -42,7 +38,9 @@ function PrivateRoute(props){
             return <Redirect to="/"/>
         }
 
-        return validToken && correctUser ? <Route { ...props } /> : <Redirect to="/"/>
+
+
+        return validToken ? <Route { ...props } /> : <Redirect to="/"/>
     }
     
     return  <Redirect to="/"/>
