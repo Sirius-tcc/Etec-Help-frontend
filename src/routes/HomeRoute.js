@@ -29,7 +29,7 @@ function HomeRoute(props){
 
 
     if (isLogged) {
-        return validToken ?  <Redirect to={`/${getTypeUser(localStorage.getItem('app-token'))}/home`}/> : <Route { ...props } />
+        return validToken ?  <Redirect to={`/${getTypeUser()}/home`}/> : <Route { ...props } />
     }
     
     return  <Route { ...props } />

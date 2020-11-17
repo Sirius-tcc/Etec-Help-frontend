@@ -1,13 +1,15 @@
 import React, { useState } from 'react'
-
+import { useHistory } from 'react-router-dom'
 import LogOut from '../../assets/images/logout.svg'
 import GoBack from '../GoBack'
 
 import './styles.css'
 import './responsive.css'
 
-function Header({ title, to, userName }){
+function Header({ title, userName }){
     
+    const { push } = useHistory()
+
     const [ show, setShow ] = useState(false)
 
     const handleMenu = () => {
@@ -48,7 +50,10 @@ function Header({ title, to, userName }){
                         <h2>{userName}</h2>
                     </div>
 
-                <div className="logout">
+                <div className="logout" onClick={() => {
+                    localStorage.clear()
+                    push('/')
+                }}>
                     <img src={ LogOut } alt="sair"/>
                 </div>
 

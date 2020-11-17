@@ -46,13 +46,13 @@ function PrivateRoute(props){
     return  <Redirect to="/"/>
 }
 
-function VerifyTypeUser(url, token) {
+function VerifyTypeUser(url) {
     const path  = url.split("/");
 
     const typeUser = path[1]
     if ( typeUser === "helper" || typeUser === "student"){
 
-        if(typeUser === getTypeUser(token)){
+        if(typeUser === getTypeUser()){
             return true
         }else{
             return false

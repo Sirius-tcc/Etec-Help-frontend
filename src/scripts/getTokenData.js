@@ -1,4 +1,5 @@
-function getTokenPayload(token){
+function getTokenPayload(){
+    const token = localStorage.getItem('app-token')
     const jwt = token.split(".")
 
     const payload = jwt[1]
@@ -8,13 +9,13 @@ function getTokenPayload(token){
 }
 
 
-function getTypeUser(token){
-    const payload = getTokenPayload(token)
+function getTypeUser(){
+    const payload = getTokenPayload()
 
     return payload.type
 }
-function getUserId(token){
-    const payload = getTokenPayload(token)
+function getUserId(){
+    const payload = getTokenPayload()
 
     return payload.id
 }

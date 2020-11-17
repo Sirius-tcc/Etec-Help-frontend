@@ -44,7 +44,7 @@ function HeaderHome({ name, type, position, title, img }){
                 {title?<h1 className="title">{title}</h1>:<></>}
                 
                 <div className="logout" onClick={() => {
-                    localStorage.removeItem('app-token')
+                    localStorage.clear()
                     push('/')
                 }}>
                     <img src={ LogOut } alt="sair"/>

@@ -4,11 +4,11 @@ import Heart from '../../assets/images/heart.svg'
 import Back from '../../assets/images/back.svg'
 import { Link, useHistory } from 'react-router-dom'
 import InputLogin from '../../components/InputLogin'
-import CheckBox from '../../components/CheckBox'
 import Button from '../../components/Button'
 import ImageApresentation from '../../components/ImageApresentation'
 import api from '../../services/api'
 import {getTypeUser} from '../../scripts/getTokenData'
+import { toast } from 'react-toastify';
 
 import './styles.css'
 import './responsive.css'
@@ -39,11 +39,11 @@ function LoginHelper(){
             // get payload from the token
             const token = data.data
             localStorage.setItem('app-token', token)
-            const url = `/${ getTypeUser(token) }/home`
+            const url = `/${ getTypeUser() }/home`
             push(url)
 
         }else{
-            alert('E-mail ou senha estão incorretos!')
+            toast.error('E-mail ou senha estão incorretos!', { position: "top-left" })
         }
     }
 
@@ -89,16 +89,7 @@ function LoginHelper(){
 
                         <div className="login-features">
 
-                            <div className="rememberMe">
-                                <CheckBox/>
-                                <span>Lembrar-me</span>
-                            </div>
-
-                            <div className="rememberMe">
-                                <Link to="#">
-                                    Esqueci minha senha
-                                </Link>
-                            </div>
+                            <div className="rememberMe"></div>
                             
                         </div>
 

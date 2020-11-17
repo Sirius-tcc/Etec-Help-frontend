@@ -39,7 +39,7 @@ function RegisterStudent(){
             setNameError(false)
 
         } else {
-            toast.error('Nome só pode haver apenas 12 caracteres');
+            toast.error('Nome só pode haver apenas 12 caracteres',  { position: "top-left" });
             setNameError(true)
             return
         }
@@ -48,7 +48,7 @@ function RegisterStudent(){
         if( verifySurname(surname) ) {
             setSurnameError(false)
         } else {
-            toast.error('Sobrenome só pode haver apenas 12 caracteres');
+            toast.error('Sobrenome só pode haver apenas 12 caracteres',  { position: "top-left" });
             setSurnameError(true)
             return
         }
@@ -56,15 +56,28 @@ function RegisterStudent(){
         if( verifyEmailValid(email) ) {
                 
             if( verifyEmailLength(email) ) {
-                setEmailError(false)
-    
+                
+                const checkEMail = await  api.post('student/checkLogin/', {email} )
+
+                const { data } = checkEMail
+
+                if(data.sucess){
+                    setEmailError(false)
+                }else{
+                    toast.error('E-mail já cadastrado',  { position: "top-left" })
+                    setEmailError(true)
+                    return
+                }
+                
+
             } else {
-                toast.error('Email Inválido! Apenas pode haver 100 caracteres no máximo!');
+                toast.error('Email Inválido! Apenas pode haver 100 caracteres no máximo!',  { position: "top-left" });
                 setEmailError(true)
+                return
             }
 
         } else {
-            toast.error('Email Inválido!');
+            toast.error('Email Inválido!',  { position: "top-left" });
             setEmailError(true)
             return
         }
@@ -73,7 +86,7 @@ function RegisterStudent(){
         if( verifyPassword(password, confirmPassword) ) {
             setConfirmPasswordError(false)
         } else {
-            toast.error('A confirmação da senha não confere');
+            toast.error('A confirmação da senha não confere',  { position: "top-left" });
             setConfirmPasswordError(true)
             return
         }
@@ -83,7 +96,7 @@ function RegisterStudent(){
             name: name.trim(),
             surname: surname.trim(),
             email: email.trim(),
-            password: password.trim()
+            password: password
         }
 
         const response = await  api.post('/student/create', __data)
@@ -100,7 +113,7 @@ function RegisterStudent(){
             }, 2000);
             
         }else{
-            toast.error('Erro ao cadastrar usuário')
+            toast.error('Erro ao cadastrar usuário',  { position: "top-left" })
         }
     }
 

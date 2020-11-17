@@ -41,7 +41,7 @@ function HomeHelper() {
 
                     <div id="home-options">
                         <div className="options">
-                            <Option image="chat.svg" title="Conecte no chat, e ajude os alunos" link={`/chat/${ getTypeUser(localStorage.getItem('app-token')) }/1`}/>
+                            <Option image="chat.svg" title="Conecte no chat, e ajude os alunos" link={`/chat/${ getTypeUser() }/1`}/>
                             <Option image="pie.svg" title="Matemática tópicos" link="/subject/Matemática"/>
                             <Option image="hacker.svg" title="Programação tópicos" link="/subject/Programação"/>
                         </div>
