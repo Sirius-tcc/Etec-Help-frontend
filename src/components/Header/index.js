@@ -6,7 +6,7 @@ import GoBack from '../GoBack'
 import './styles.css'
 import './responsive.css'
 
-function Header({ title, userName }){
+function Header({ title, userName, img }){
     
     const { push } = useHistory()
 
@@ -45,7 +45,9 @@ function Header({ title, userName }){
                 </div>
 
                     <div className="user">
-                        <div className="user-img"></div>
+                        <div className="user-img">
+                            {!!img && (<img src={ img } alt={ userName }/>) }
+                        </div>
 
                         <h2>{userName}</h2>
                     </div>

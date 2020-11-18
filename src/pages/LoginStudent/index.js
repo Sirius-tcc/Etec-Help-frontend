@@ -19,17 +19,18 @@ function LoginStudent(){
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [loading, setLoading] = useState(false)
 
     const { push } = useHistory()
 
     async function handleSubmit(e){
         e.preventDefault()
+        setLoading(true)
 
         const __data = {
             email,
             password
         }
-
         const response = await  api.post('/student/login', __data)
         
         const { data } = response
@@ -43,6 +44,8 @@ function LoginStudent(){
         }else{
             toast.error('E-mail ou senha estão incorretos!', { position:"top-left" })
         }
+
+        setLoading(false)
     }
 
     return(
@@ -55,7 +58,7 @@ function LoginStudent(){
 
 
             <section className="login-container">
-
+               
                 <div className="back">
                     <Link to="/">
                         <img src={Back} alt="Voltar para home"/>
@@ -87,7 +90,10 @@ function LoginStudent(){
 
                         <div className="login-features"></div>
 
-                        <Button buttonName="Entrar"/>
+                        <Button 
+                            buttonName="Entrar"
+                            loading={ loading }
+                        />
                         
                         <div className="register-container">
 

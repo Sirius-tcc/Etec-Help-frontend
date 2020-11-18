@@ -9,7 +9,7 @@ import { getUserId } from '../../scripts/getTokenData'
 import { toast } from 'react-toastify';
 import { useHistory } from 'react-router-dom'
 import api from '../../services/api'
-
+import { verifyEmailLength, verifyEmailValid, verifyName, verifySurname } from '../../scripts/ValidateData'
 
 import './styles.css'
 import './responsive.css'
@@ -24,13 +24,11 @@ function ProfileStudent(){
     const [email, setEmail] = useState('')
     const [image, setImage] = useState([]);
     const [imageUrl, setImageUrl] = useState(null);
-    
+    const [loading, setLoading] = useState(false)
     
     const { push } = useHistory()
 
 
-
-    
 
     useEffect(()=>{
 
@@ -71,7 +69,55 @@ function ProfileStudent(){
 
     async function handleSubmit(e){
         e.preventDefault()
+        setLoading(true)
 
+        if(
+            name.trim().length < 1 ||
+            email.trim().length < 1 ||
+            surname.trim().length < 1 
+        ){
+            toast.error('Preencha todos os dados!')
+            setLoading(false)
+            return
+        }
+
+        if(!verifyName(name)){
+            toast.error('O campo nome só pode ter no máximo 12 caracteres')
+            setLoading(false)
+            return
+        }
+        if(!verifySurname(surname)){ 
+            toast.error('O campo sobrenome só pode ter no máximo 12 caracteres') 
+            setLoading(false)
+            return
+        }
+
+        if(!verifyEmailValid(email)){
+            toast.error('Email Inválido!');
+            setLoading(false)
+            return
+        }
+
+        if(!verifyEmailLength(email)){
+            toast.error('Email Inválido! Apenas pode haver 100 caracteres no máximo!');
+            setLoading(false)
+            return
+        }
+
+
+        if(student.email !== email){
+
+            const checkEMail = await  api.post('/student/checkLogin/', {email})
+            const { data } = checkEMail
+            if(!data.sucess){
+
+                toast.error('E-mail já cadastrado')
+                setLoading(false)
+                return
+            }
+        }
+
+        
         const __data = {
             name: name.trim(),
             surname: surname.trim(),
@@ -84,6 +130,7 @@ function ProfileStudent(){
 
         if(!data.sucess){
             toast.error('Erro ao atualizar os dados!')
+            setLoading(false)
             return
         }
 
@@ -98,6 +145,7 @@ function ProfileStudent(){
             if(!sucess){
                 toast.error('Erro ao salvar imagem!')
                 console.log(response.data.data)
+                setLoading(false)
                 return
             }
         }
@@ -111,6 +159,8 @@ function ProfileStudent(){
          setTimeout(()=>{
             push('/student/home')
          }, 2000)
+
+         setLoading(false)
         
     }
 
@@ -121,6 +171,7 @@ function ProfileStudent(){
             <Header
                 title="Meu Perfil"
                 userName={ `${student.name } ${student.surname }` }
+                img={ imageUrl }
             />
             
             <div className="profile-content">
@@ -208,6 +259,7 @@ function ProfileStudent(){
                         </div>
                         <Button 
                             buttonName="Salvar cadastro"
+                            loading={ loading }
                         />
                     </div>
                 </form>

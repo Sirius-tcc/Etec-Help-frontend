@@ -34,12 +34,19 @@
     height: 180px;
     background-color: var(--color-grey-light);
     border-radius: 50%;
+    position: relative;
 }
 
 #profile-helper .profile-content .profile .user .user-image #upload-photo{
     opacity: 0;
     position: absolute;
     z-index: -1;
+}
+
+#profile-helper .profile-content .profile .user  img.profile-image-student{
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
 }
 
 #profile-helper .profile-content .profile .user .user-image .upload{
@@ -51,8 +58,9 @@
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    margin-top: 118px;
-    margin-left: 142px;
+    right: 0;
+    bottom: 0;
+    position: absolute;
     
 }
 
@@ -80,7 +88,12 @@
 
 #profile-helper .profile-content .profile .user .subject-user{
     margin-top: 24px;
-    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+#profile-helper .profile-content .profile .user .subject-user #subject{
+    margin: 4px;
 }
 
 #profile-helper .profile-content .profile .user .classification{

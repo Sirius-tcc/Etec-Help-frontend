@@ -6,6 +6,7 @@ import { toast } from 'react-toastify';
 import InputLogin from '../../components/InputLogin'
 import Button from '../../components/Button'
 import ImageApresentation from '../../components/ImageApresentation'
+import { verifyEmailLength, verifyEmailValid, verifyName, verifyPassword, verifySurname } from '../../scripts/ValidateData'
 
 
 import './styles.css'
@@ -29,11 +30,13 @@ function RegisterStudent(){
     const [ surnameError, setSurnameError ] = useState(false)
     const [ emailError, setEmailError ] = useState(false)
     const [ confirmPasswordError, setConfirmPasswordError ] = useState(false)
+    const [ loading, setLoading ] = useState(false)
 
     const { push } = useHistory()
 
     async function handleOnSubmit(e){
         e.preventDefault()
+        setLoading(true)
 
         if( verifyName(name) ) {
             setNameError(false)
@@ -41,6 +44,7 @@ function RegisterStudent(){
         } else {
             toast.error('Nome só pode haver apenas 12 caracteres',  { position: "top-left" });
             setNameError(true)
+            setLoading(false)
             return
         }
 
@@ -50,6 +54,7 @@ function RegisterStudent(){
         } else {
             toast.error('Sobrenome só pode haver apenas 12 caracteres',  { position: "top-left" });
             setSurnameError(true)
+            setLoading(false)
             return
         }
 
@@ -66,6 +71,7 @@ function RegisterStudent(){
                 }else{
                     toast.error('E-mail já cadastrado',  { position: "top-left" })
                     setEmailError(true)
+                    setLoading(false)
                     return
                 }
                 
@@ -73,12 +79,15 @@ function RegisterStudent(){
             } else {
                 toast.error('Email Inválido! Apenas pode haver 100 caracteres no máximo!',  { position: "top-left" });
                 setEmailError(true)
+                setLoading(false)
+
                 return
             }
 
         } else {
             toast.error('Email Inválido!',  { position: "top-left" });
             setEmailError(true)
+            setLoading(false)
             return
         }
 
@@ -88,6 +97,7 @@ function RegisterStudent(){
         } else {
             toast.error('A confirmação da senha não confere',  { position: "top-left" });
             setConfirmPasswordError(true)
+            setLoading(false)
             return
         }
         
@@ -115,6 +125,9 @@ function RegisterStudent(){
         }else{
             toast.error('Erro ao cadastrar usuário',  { position: "top-left" })
         }
+
+        setLoading(false)
+
     }
 
 
@@ -194,7 +207,11 @@ function RegisterStudent(){
                         />
 
 
-                        <Button buttonName="Concluir Cadastro" send={canSend} />
+                        <Button 
+                            buttonName="Concluir Cadastro" 
+                            send={canSend} 
+                            loading={ loading }
+                        />
 
                     </form>
                 </div>
@@ -204,59 +221,6 @@ function RegisterStudent(){
            
         </div>
     );
-}
-
-function verifyEmailValid(email){
-
-    if(email.indexOf("@") !== -1 && email.indexOf(".") !== -1){
-        let splitEmail = email.split('@')
-
-        if (splitEmail[0] !== ''){
-            splitEmail = splitEmail[1].split('.')
-            
-            if
-            (
-                splitEmail[0] !== '' &&
-                splitEmail[1] !== '' 
-            ){
-                return true
-            }
-        }
-
-        return false
-    }
-}
-
-function verifyEmailLength(email) {
-    if (email.trim().length <= 100){
-        return true
-    }
-
-    return false
-}
-
-function verifyPassword(password1, password2){
-    if (password1 === password2){
-        return true
-    }
-
-    return false
-}
-
-function verifyName(name){
-    if (name.trim().length <= 12){
-        return true
-    }
-
-    return false
-}
-
-function verifySurname(surname){
-    if (surname.trim().length <= 12){
-        return true
-    }
-
-    return false
 }
 
 

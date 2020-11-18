@@ -20,12 +20,13 @@ function LoginHelper(){
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [loading, setLoading] = useState(false)
 
     const { push } = useHistory()
 
     async function handleSubmit(e){
         e.preventDefault()
-
+        setLoading(true)
         const __data = {
             email,
             password
@@ -45,6 +46,9 @@ function LoginHelper(){
         }else{
             toast.error('E-mail ou senha estão incorretos!', { position: "top-left" })
         }
+
+        setLoading(false)
+        
     }
 
 
@@ -93,7 +97,11 @@ function LoginHelper(){
                             
                         </div>
 
-                        <Button buttonName="Entrar" type="submit"/>
+                        <Button 
+                            buttonName="Entrar" 
+                            type="submit"
+                            loading={ loading }
+                        />
                         
                         <div className="register-container">
 

@@ -7,6 +7,7 @@ import InputLogin from '../../components/InputLogin'
 import Button from '../../components/Button'
 import ImageApresentation from '../../components/ImageApresentation'
 import { toast } from 'react-toastify';
+import { verifyEmailLength, verifyEmailValid, verifyName, verifyPassword, verifySurname } from '../../scripts/ValidateData'
 
 import './styles.css'
 import './responsive.css'
@@ -28,11 +29,13 @@ function RegisterHelper(){
     const [ surnameError, setSurnameError ] = useState(false)
     const [ emailError, setEmailError ] = useState(false)
     const [ confirmPasswordError, setConfirmPasswordError ] = useState(false)
+    const [loading, setLoading] = useState(false)
 
     const { push } = useHistory()
 
     async function handleOnSubmit(e){
         e.preventDefault()
+        setLoading(true)
 
         if( verifyName(name) ) {
             setNameError(false)
@@ -40,6 +43,7 @@ function RegisterHelper(){
         } else {
             toast.error('Nome só pode haver apenas 12 caracteres');
             setNameError(true)
+            setLoading(false)
             return
         }
 
@@ -49,6 +53,7 @@ function RegisterHelper(){
         } else {
             toast.error('Sobrenome só pode haver apenas 12 caracteres');
             setSurnameError(true)
+            setLoading(false)
             return
         }
 
@@ -63,8 +68,9 @@ function RegisterHelper(){
                 if(data.sucess){
                     setEmailError(false)
                 }else{
-                    toast.error('E-mail já cadastrado'  )
+                    toast.error('E-mail já cadastrado')
                     setEmailError(true)
+                    setLoading(false)
                     return
                 }
                 
@@ -72,12 +78,14 @@ function RegisterHelper(){
             } else {
                 toast.error('Email Inválido! Apenas pode haver 100 caracteres no máximo!'  );
                 setEmailError(true)
+                setLoading(false)
                 return
             }
 
         } else {
-            toast.error('Email Inválido!'  );
+            toast.error('Email Inválido!');
             setEmailError(true)
+            setLoading(false)
             return
         }
 
@@ -87,6 +95,7 @@ function RegisterHelper(){
         } else {
             toast.error('A confirmação da senha não confere'  );
             setConfirmPasswordError(true)
+            setLoading(false)
             return
         }
         
@@ -113,9 +122,11 @@ function RegisterHelper(){
             }, 2000);
             
         }else{
-            toast.error('Erro ao cadastrar usuário'  )
+            toast.error('Erro ao cadastrar usuário')
             console.log(data)
         }
+
+        setLoading(false)
     }
 
 
@@ -192,6 +203,7 @@ function RegisterHelper(){
                         <Button 
                             buttonName="Concluir Cadastro"
                             send={ canSend }
+                            loading={ loading }
                         />
 
                     </form>
@@ -208,60 +220,5 @@ function RegisterHelper(){
         </div>
     );
 }
-
-function verifyEmailValid(email){
-
-    if(email.indexOf("@") !== -1 && email.indexOf(".") !== -1){
-        let splitEmail = email.split('@')
-
-        if (splitEmail[0] !== ''){
-            splitEmail = splitEmail[1].split('.')
-            
-            if
-            (
-                splitEmail[0] !== '' &&
-                splitEmail[1] !== '' 
-            ){
-                return true
-            }
-        }
-
-        return false
-    }
-}
-
-function verifyEmailLength(email) {
-    if (email.trim().length <= 100){
-        return true
-    }
-
-    return false
-}
-
-
-function verifyPassword(password1, password2){
-    if (password1 === password2){
-        return true
-    }
-
-    return false
-}
-
-function verifyName(name){
-    if (name.trim().length <= 12){
-        return true
-    }
-
-    return false
-}
-
-function verifySurname(surname){
-    if (surname.trim().length <= 12){
-        return true
-    }
-
-    return false
-}
-
 
 export default RegisterHelper;

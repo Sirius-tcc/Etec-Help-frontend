@@ -4,6 +4,11 @@ import './styles.css'
 
 function Subject({ name, boxWidth , boxBoderRadius, circleWidth, fontSize , color, padding }){
     
+
+    if (name === "Matemática"){
+        color = "#FCFF70"
+    }else if(name === "Programação"){color = "#6BDC92"}
+
     const boxStyle = {
         border:`1px solid ${color}`,  
         width:boxWidth?`${boxWidth}`:'auto',

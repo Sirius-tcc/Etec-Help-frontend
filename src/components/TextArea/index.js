@@ -6,7 +6,7 @@ import './styles.css'
 function TextArea({name, ...rest }){
     return(
         <div id="text-area">
-            <label for={ name }>
+            <label htmlFor={ name }>
                 { name }
             </label>
             <div className="text-area">
