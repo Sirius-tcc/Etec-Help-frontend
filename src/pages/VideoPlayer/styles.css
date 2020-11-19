@@ -19,6 +19,8 @@
     width: 853px; 
     height: 480px;
     transition-duration: 1s;
+    background-color: black;
+    border-radius: 10px;
 
 }
 

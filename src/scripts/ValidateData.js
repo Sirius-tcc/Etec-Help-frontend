@@ -51,7 +51,7 @@ module.exports = {
     },
 
     verifyBio(bio){
-        if (bio.trim().length <= 140){
+        if (bio.trim().length <= 300){
             return true
         }
 

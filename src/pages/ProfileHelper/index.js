@@ -37,6 +37,9 @@ function ProfileHelper(){
     const [programming, setProgramming] = useState(false)
 
     useEffect(()=>{
+
+        
+
         async function fechProfileHelper(){
             const id = getUserId()
             const response = await api.get(`/helper/show/${id}`)
@@ -50,14 +53,21 @@ function ProfileHelper(){
             setBio(!!response.data.data[0].bio ? response.data.data[0].bio :"")
 
             response.data.data[0].subjects.map(subject => {
-                if(subject==="Matemática"){
+                if(subject === "Matemática"){
                     setMath(true)
-                }else if(subject==="Programação"){
+                }else if(subject === "Programação"){
                     setProgramming(true)
                 }
                 return null;
             })
+            
+            if(response.data.data[0].subjects[0] === null){
+                toast.warn('Selecione pelo menos uma matéria para continuar!', { 
+                    position : "top-center",
+                })
+            }
            
+            
         }
 
         fechProfileHelper()
@@ -81,12 +91,20 @@ function ProfileHelper(){
     async function handleSubmit(e){
         e.preventDefault()
         setLoading(true)
+        const __data = {
+            name : name.trim(),
+            surname : surname.trim(),
+            email : email.trim(),
+            bio : bio.trim(),
+        }
+
+        console.log(__data)
+
 
         if(
             name.trim().length < 1 ||
             email.trim().length < 1 ||
-            surname.trim().length < 1 ||
-            bio.trim().length < 1 
+            surname.trim().length < 1 
         ){
             toast.error('Preencha todos os dados!')
             setLoading(false)
@@ -131,7 +149,7 @@ function ProfileHelper(){
 
 
         if(!verifyBio(bio)){
-            toast.error(`Biografia pode ter no máximo 140 caracteres. Você colocou ${bio.length} caracteres`)
+            toast.error(`Biografia pode ter no máximo 300 caracteres. Você colocou ${bio.length} caracteres`)
             setLoading(false)
             return
         }
@@ -143,15 +161,92 @@ function ProfileHelper(){
             return
         }
 
+        
+       
 
-        const __data = {
-            name : name.trim(),
-            surname : surname.trim(),
-            email : email.trim(),
-            bio : bio.trim(),
+        const response = await api.put(`/helper/update/${getUserId()}`, __data )
+        
+        const { data } = response
+
+        if(!data.sucess){
+            toast.error('Erro ao atualizar os dados!')
+
+
+            console.log(data)
+            setLoading(false)
+            return
         }
 
-        console.log(__data)
+        if(image.length !== 0){
+            const formData = new FormData();
+            formData.append('helper_photo', image)
+
+            const response = await api.post(`/helper/upload_profile/${getUserId()}`, formData)
+            const  sucess = response.data.sucess
+            if(!sucess){
+                toast.error('Erro ao salvar imagem!')
+                console.log(response.data.data)
+                setLoading(false)
+                return
+            }
+        }
+
+        const math_data = { subject_code : 1 }
+        const programming_data = { subject_code : 2 }
+
+        
+        if(math){
+            const response = await api.post(`/helper/create_subject_helper/${getUserId()}`, math_data)
+            const  sucess = response.data.sucess
+            if(!sucess){
+                toast.error('Erro ao atualizar matéria!')
+                console.log(response.data.data)
+                console.log(math_data)
+                setLoading(false)
+                return
+            }
+        }else{
+            const response = await api.put(`/helper/delete_subject/${getUserId()}`, math_data)
+            const  sucess = response.data.sucess
+            if(!sucess){
+                toast.error('Erro ao deletar matéria!')
+                console.log(response.data.data)
+                console.log(math_data)
+                setLoading(false)
+                return
+            }
+        }
+
+        if(programming){
+            const response = await api.post(`/helper/create_subject_helper/${getUserId()}`, programming_data)
+            const  sucess = response.data.sucess
+            if(!sucess){
+                toast.error('Erro ao atualizar matéria!')
+                console.log(response.data.data)
+                console.log(programming_data)
+                setLoading(false)
+                return
+            }
+        }else{
+            const response = await api.put(`/helper/delete_subject/${getUserId()}`, programming_data)
+            const  sucess = response.data.sucess
+            if(!sucess){
+                toast.error('Erro ao deletar matéria!')
+                console.log(response.data.data)
+                console.log(programming_data)
+                setLoading(false)
+                return
+            }
+        }
+
+        toast.success('Atualização feita com sucesso!', {
+            autoClose: 2000,
+         })
+
+         setTimeout(()=>{
+            push('/student/home')
+         }, 2000)
+
 
         setLoading(false)
     }
@@ -258,7 +353,9 @@ function ProfileHelper(){
                         <TextArea
                             name="Biografia"
                             value={ bio ? bio : '' }
-                            onChange={ e => setBio(e.target.value) }
+                            onChange={ e => {
+                                setBio(e.target.value)
+                            }}
                         />
                     </div>
 

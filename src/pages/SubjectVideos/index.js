@@ -1,14 +1,34 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Header from '../../components/Header'
 import HeaderBottom from '../../components/HeaderBottom'
 import VideoContainer from '../../components/VideoContainer'
+import { useHistory } from 'react-router-dom'
+import { toast } from 'react-toastify'
+import api from '../../services/api'
 
 import './styles.css'
 
 function SubjectVideos(props){
     
+    const [ videos, setVideos ] = useState([])
+
     const subject = props.match.params.subject
+
     const topic = props.match.params.topic
+    const { push } = useHistory()
+    useEffect(() => {
+        async function fetchLoadVideos(){
+            const response = await api.get(`/Video/list/${ topic }`)
+            const { data } = response
+
+            if(data.sucess){
+                setVideos(data.data)
+            }else{
+                toast.info(data.data, { position : "bottom-center", autoClose: false})
+            }
+        }
+        fetchLoadVideos()
+    }, [topic])
 
     return(
 
@@ -19,12 +39,19 @@ function SubjectVideos(props){
             </div>
 
             <div className="video-content flex">
-                <VideoContainer img="aritmetica.svg" title="Soma, como somar" views="367" id={1} subject={ subject } topic={ topic } />
-                <VideoContainer img="aritmetica.svg" title="Soma, como somar" views="367" id={2} subject={ subject } topic={ topic } />
-                <VideoContainer img="aritmetica.svg" title="Soma, como somar" views="367" id={3} subject={ subject } topic={ topic } />
-                <VideoContainer img="aritmetica.svg" title="Soma, como somar" views="367" id={4} subject={ subject } topic={ topic } />
-                <VideoContainer img="aritmetica.svg" title="Soma, como somar" views="367" id={5} subject={ subject } topic={ topic } />
-                
+                {
+                    videos.map(video =>(
+                        <VideoContainer 
+                            key={ video.code } 
+                            img={ video.icon } 
+                            title={ video.title } 
+                            id={video.code} 
+                            subject={ subject } 
+                            topic={ topic } 
+                            views={ video.views }
+                        />
+                    ))
+                }
             </div>
 
         </div>

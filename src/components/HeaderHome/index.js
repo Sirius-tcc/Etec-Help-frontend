@@ -1,15 +1,14 @@
 import React, { useState } from 'react'
 import LogOut from '../../assets/images/logout.svg'
 import { Link, useHistory } from 'react-router-dom'
+import { getTokenPayload } from '../../scripts/getTokenData'
+
 import './styles.css'
 import './responsive.css'
 
 
-
-
-function HeaderHome({ name, type, position, title, img }){
+function HeaderHome({ position, title }){
     
-
     const { push } =  useHistory()
 
     const [ show, setShow ] = useState(false)
@@ -17,11 +16,11 @@ function HeaderHome({ name, type, position, title, img }){
     const handleMenu = () => {
         setShow(!show)
     }
-
+    
     document.body.style.overflow =  show?"hidden":"initial";
     const stylesCss = {position}
     
-
+    const user = getTokenPayload()
 
     return(
         <header className={`page-header ${ show?"on":"" }`} style ={stylesCss} >
@@ -32,12 +31,12 @@ function HeaderHome({ name, type, position, title, img }){
             </div>
 
             <div className="header-content">
-                <Link to={`/${ type }/profile`} >
+                <Link to={`/${ user.type }/profile`} >
                     <div className="user">
                         <div className="user-img">
-                            {img ? <img src={ img } alt={ name } width={'100%'}/> : <></>}
+                            {user.img ? <img src={ user.img } alt={ user.name } width={'100%'}/> : <></>}
                         </div>
-                        <h2>{ name }</h2>
+                        <h2>{ `${user.name} ${user.surname}` }</h2>
                     </div>
                 </Link>
                 

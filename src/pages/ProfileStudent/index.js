@@ -105,18 +105,6 @@ function ProfileStudent(){
         }
 
 
-        if(student.email !== email){
-
-            const checkEMail = await  api.post('/student/checkLogin/', {email})
-            const { data } = checkEMail
-            if(!data.sucess){
-
-                toast.error('E-mail já cadastrado')
-                setLoading(false)
-                return
-            }
-        }
-
         
         const __data = {
             name: name.trim(),

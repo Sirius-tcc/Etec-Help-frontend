@@ -12,7 +12,7 @@ function VideoContainer({img, title, views, subject, topic, id }){
             <Link to={`/subject/${subject}/${topic}/videos/${id}`}>
                 <div className="content">
                         <div className="thumbnail">
-                            <img src={ require(`../../assets/images/${img}`) } alt=""/>
+                            <img src={ img } alt=""/>
                         </div>
                         <div className="video-info">
                             <h3>{ title }</h3>

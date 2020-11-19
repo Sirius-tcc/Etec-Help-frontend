@@ -46,6 +46,7 @@
     width: 180px;
     height: 180px;
     border-radius: 50%;
+    object-fit: cover;
 }
 
 #profile-student .profile-content .profile .user .user-image .upload{

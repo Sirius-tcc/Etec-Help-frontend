@@ -2,11 +2,12 @@ import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import LogOut from '../../assets/images/logout.svg'
 import GoBack from '../GoBack'
+import { getTokenPayload } from '../../scripts/getTokenData'
 
 import './styles.css'
 import './responsive.css'
 
-function Header({ title, userName, img }){
+function Header({ title }){
     
     const { push } = useHistory()
 
@@ -16,10 +17,9 @@ function Header({ title, userName, img }){
         setShow(!show)
     }
 
+    const user = getTokenPayload()
     document.body.style.overflow =  show?"hidden":"initial";
  
-
-
     return(
         <header className={`header ${ show?"on":"" }`} >
             <div className="menu-item">
@@ -46,10 +46,10 @@ function Header({ title, userName, img }){
 
                     <div className="user">
                         <div className="user-img">
-                            {!!img && (<img src={ img } alt={ userName }/>) }
+                            {!!user.img && (<img src={ user.img } alt={ user.name }/>) }
                         </div>
 
-                        <h2>{userName}</h2>
+                        <h2>{ `${user.name}  ${user.surname}` }</h2>
                     </div>
 
                 <div className="logout" onClick={() => {

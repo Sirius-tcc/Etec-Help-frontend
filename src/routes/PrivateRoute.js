@@ -1,9 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import { Redirect, Route } from 'react-router-dom';
-import { getTypeUser } from '../scripts/getTokenData'
+import { getTypeUser, getUserId } from '../scripts/getTokenData'
 import api from '../services/api';
-
-
+import ProfileHelper from '../pages/ProfileHelper';
 
 function PrivateRoute(props){
     const token = localStorage.getItem('app-token')
@@ -11,8 +10,8 @@ function PrivateRoute(props){
     const isLogged = !!token
     
     const [validToken, setValidToken] = useState(true)
+    const [subjectSeted, setSubjectSeted] = useState(true)
 
-    
     useEffect(() => {
         api.get(
             '/auth/checkAuth', 
@@ -29,21 +28,39 @@ function PrivateRoute(props){
     
     });
 
-
     if (isLogged) {
 
-        const correctUser = VerifyTypeUser(props.path, token )
+        if (validToken){
+            const correctUser = VerifyTypeUser(props.path, token )
 
-        if (!correctUser){
-            return <Redirect to="/"/>
-        }
+            if (!correctUser){
+                return <Redirect to="/"/>
+            }
 
+            const path  = props.path.split("/");
+            const typeUser = path[1]
+            if(typeUser === "helper" && path[2] !== "profile"){
+                api.get(`/helper/show/${getUserId()}`).then(res =>{
+                    const data = res.data.data[0]
+                    if(data.subjects[0] === null){
+                        setSubjectSeted(false) 
+                    }
+                });
 
+            }
 
-        return validToken ? <Route { ...props } /> : <Redirect to="/"/>
+            if(subjectSeted){
+                return <Route { ...props } /> 
+
+            }else{
+                return <Route component={ ProfileHelper }/>
+            }
+            
+        } 
+        
     }
+    return <Redirect to="/"/>
     
-    return  <Redirect to="/"/>
 }
 
 function VerifyTypeUser(url) {
@@ -60,8 +77,6 @@ function VerifyTypeUser(url) {
     }
     
     return true
-    
-    
 }
 
 export default PrivateRoute
