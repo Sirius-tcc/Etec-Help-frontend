@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Header from '../../components/Header'
 import HeaderBottom from '../../components/HeaderBottom'
 import Topic from '../../components/Topic'
+import { getTypeUser } from '../../scripts/getTokenData'
 import api from '../../services/api'
 
 import './styles.css'
@@ -25,7 +26,7 @@ function SubjectPage(props){
     return(
         <div id="subject-page">
             <div className="header">
-                <Header title={ subject } />
+                <Header title={ subject } to={ `/${ getTypeUser() }/home` }/>
                 <HeaderBottom title={`Estes são os tópicos  de ${ subject.toLowerCase() }`}/>
             </div>
             <div className="topic-container">

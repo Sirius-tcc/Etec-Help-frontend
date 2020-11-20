@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import LogOut from '../../assets/images/logout.svg'
 import { Link, useHistory } from 'react-router-dom'
-import { getTokenPayload } from '../../scripts/getTokenData'
+import { getTypeUser, getUserId } from '../../scripts/getTokenData'
+import api from '../../services/api'
 
 import './styles.css'
 import './responsive.css'
@@ -12,6 +13,7 @@ function HeaderHome({ position, title }){
     const { push } =  useHistory()
 
     const [ show, setShow ] = useState(false)
+    const [ user, setUser ] = useState(false)
 
     const handleMenu = () => {
         setShow(!show)
@@ -20,7 +22,26 @@ function HeaderHome({ position, title }){
     document.body.style.overflow =  show?"hidden":"initial";
     const stylesCss = {position}
     
-    const user = getTokenPayload()
+    useEffect(() =>{
+        async function fetchHelperData(){
+            const res = await api.get(`/helper/show/${ getUserId() }`)
+            const data = res.data.data[0]
+
+            setUser(data)
+        }
+
+        async function fetchStudentData(){
+            const res = await api.get(`/student/show/${ getUserId() }`)
+            const data = res.data.data[0]
+
+            setUser(data)
+        }
+
+        if(getTypeUser() === "helper"){
+            fetchHelperData()
+        }else{ fetchStudentData() }
+
+    }, [])
 
     return(
         <header className={`page-header ${ show?"on":"" }`} style ={stylesCss} >
@@ -31,12 +52,12 @@ function HeaderHome({ position, title }){
             </div>
 
             <div className="header-content">
-                <Link to={`/${ user.type }/profile`} >
+                <Link to={`/${ getTypeUser() }/profile`} >
                     <div className="user">
                         <div className="user-img">
-                            {user.img ? <img src={ user.img } alt={ user.name } width={'100%'}/> : <></>}
+                            {user.photo ? <img src={ user.photo } alt={ user.name } width={'100%'}/> : <></>}
                         </div>
-                        <h2>{ `${user.name} ${user.surname}` }</h2>
+                        <h2>{ user && `${user.name} ${user.surname}` }</h2>
                     </div>
                 </Link>
                 

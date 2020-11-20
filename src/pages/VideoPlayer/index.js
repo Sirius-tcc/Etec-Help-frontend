@@ -13,6 +13,7 @@ function VideoPlayer(props){
 
     const [ video, setVideo ] = useState([])
     const subject = props.match.params.subject
+    const topic = props.match.params.topic
    
     const id = props.match.params.id
     
@@ -72,11 +73,11 @@ function VideoPlayer(props){
         }
 
         fetchVideo()
-    }, [])
+    }, [ id ])
 
     return(
         <div id="videos-player">
-            <Header title={ subject }/>
+            <Header to={ `/subject/${ subject }/${ topic }/videos` } title={ topic }/>
 
             <div className="video-page-content">
 
@@ -97,7 +98,6 @@ function VideoPlayer(props){
                     onStart={()=>{
                         api.post(`/Video/create_view/${video.code}`)
                     }}
-
                 />
             </div>
 

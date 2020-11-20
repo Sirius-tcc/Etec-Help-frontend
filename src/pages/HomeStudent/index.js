@@ -17,7 +17,11 @@ function HomeStudent() {
                 <HomeApresentation/>
                 <div id="home-options">
                     <div className="options">
-                        <Option image="chat.svg" title="Conecte no chat, e ajude os alunos" link={`/chat/${ getTypeUser() }/1`}/>
+                        <Option 
+                            image="chat.svg"
+                            title="Conecte no chat, e ajude os alunos" 
+                            link={`/${ getTypeUser() }/chat/0`}
+                        />
                         <Option image="helper.svg" title="Ver Helpers disponiveis" link="list"/>
                         <Option image="pie.svg" title="Matemática tópicos" link="/subject/Matemática"/>
                         <Option image="hacker.svg" title="Programação tópicos" link="/subject/Programação"/>

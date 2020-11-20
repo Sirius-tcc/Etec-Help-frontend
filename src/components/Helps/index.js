@@ -11,7 +11,7 @@ export default function GivenHelps({ who, title, description, status, date, star
 
     const statusArray = [
         {status : "Pendente", color:"#FCFF70"},
-        {status : "Fechado", color:"#9FFFA9"},
+        {status : "Confirmado", color:"#9FFFA9"},
         {status : "Recusado", color:"#FF9F9F"}
     ]
 
@@ -28,7 +28,7 @@ export default function GivenHelps({ who, title, description, status, date, star
                         <div className="body">
                             <div className="row">
                                 <h5>Status:</h5>
-                                <span className="status" style={ { color: statusArray[status].color } } >{statusArray[status].status}</span>
+                                <span className="status" style={ { color: statusArray[Number(status) - 1].color } } >{statusArray[Number(status) - 1].status}</span>
                             </div>
 
                             <div className="row ">
@@ -36,7 +36,7 @@ export default function GivenHelps({ who, title, description, status, date, star
                                 <span className="date">{date}</span>
                             </div>
                             
-                            {stars &&
+                            {stars !== 0 &&
                                 (<div className="row classification">
                                     <h5>Avaliação:</h5>
                                     <span className="span-class">
@@ -80,7 +80,7 @@ export default function GivenHelps({ who, title, description, status, date, star
 
                                     <div className="row">
                                         <h3>Status</h3>
-                                        <span style={ { color: statusArray[status].color } } >{statusArray[status].status}</span>
+                                        <span style={ { color: statusArray[Number(status) - 1].color } } >{statusArray[Number(status) - 1].status}</span>
                                     </div>
 
 

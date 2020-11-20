@@ -4,13 +4,13 @@ import { Link } from 'react-router-dom'
 
 import './styles.css'
 
-function UserChat({ img, notifications, selected }){
+function UserChat({ img, notifications, selected, ...rest }){
 
 
     return(
 
         <>
-            <div id="user-chat">
+            <div id="user-chat" { ...rest }>
                 {selected?<div className="selected"/>:<></>}
 
                 <div className="user">

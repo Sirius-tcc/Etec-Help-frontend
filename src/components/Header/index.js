@@ -1,30 +1,52 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import LogOut from '../../assets/images/logout.svg'
 import GoBack from '../GoBack'
-import { getTokenPayload } from '../../scripts/getTokenData'
+import api from '../../services/api'
+import { getUserId, getTypeUser } from '../../scripts/getTokenData'
 
 import './styles.css'
 import './responsive.css'
 
-function Header({ title }){
+function Header({ title, to }){
     
     const { push } = useHistory()
 
     const [ show, setShow ] = useState(false)
+    const [ user, setUser ] = useState('')
 
     const handleMenu = () => {
         setShow(!show)
     }
 
-    const user = getTokenPayload()
+    
     document.body.style.overflow =  show?"hidden":"initial";
- 
+    useEffect(() =>{
+        async function fetchHelperData(){
+            const res = await api.get(`/helper/show/${ getUserId() }`)
+            const data = res.data.data[0]
+
+            setUser(data)
+        }
+
+        async function fetchStudentData(){
+            const res = await api.get(`/student/show/${ getUserId() }`)
+            const data = res.data.data[0]
+
+            setUser(data)
+        }
+
+        if(getTypeUser() === "helper"){
+            fetchHelperData()
+        }else{ fetchStudentData() }
+
+    }, [])
+
     return(
         <header className={`header ${ show?"on":"" }`} >
             <div className="menu-item">
                 <div className="menu-toggle-back">
-                    <GoBack/>
+                    <GoBack to={to} /> 
                 </div>
 
                 <div className="menu-toggle-header" onClick={ handleMenu }>
@@ -46,7 +68,7 @@ function Header({ title }){
 
                     <div className="user">
                         <div className="user-img">
-                            {!!user.img && (<img src={ user.img } alt={ user.name }/>) }
+                            {!!user.photo && (<img src={ user.photo } alt={ user.name }/>) }
                         </div>
 
                         <h2>{ `${user.name}  ${user.surname}` }</h2>
@@ -64,6 +86,5 @@ function Header({ title }){
         </header>
     )
 }
-
 
 export default Header

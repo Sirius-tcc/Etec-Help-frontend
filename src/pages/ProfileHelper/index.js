@@ -38,8 +38,6 @@ function ProfileHelper(){
 
     useEffect(()=>{
 
-        
-
         async function fechProfileHelper(){
             const id = getUserId()
             const response = await api.get(`/helper/show/${id}`)
@@ -97,9 +95,6 @@ function ProfileHelper(){
             email : email.trim(),
             bio : bio.trim(),
         }
-
-        console.log(__data)
-
 
         if(
             name.trim().length < 1 ||

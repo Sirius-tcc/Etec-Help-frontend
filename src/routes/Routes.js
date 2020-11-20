@@ -36,7 +36,7 @@ function Routes(){
                 <PrivateRoute path="/subject/:subject" exact component={ SubjectPage } />
                 <PrivateRoute path="/subject/:subject/:topic/videos" exact component={ SubjectVideos } />
                 <PrivateRoute path="/subject/:subject/:topic/videos/:id" exact component={ VideoPlayer } />
-                <PrivateRoute path="/chat/:type/:id" exact component={ Chat } />
+                <PrivateRoute path="/:type/chat/:id" exact component={ Chat } />
             </Switch>
             
         </BrowserRouter>

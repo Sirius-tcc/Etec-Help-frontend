@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import Header from '../../components/Header'
 import HeaderBottom from '../../components/HeaderBottom'
 import VideoContainer from '../../components/VideoContainer'
-import { useHistory } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import api from '../../services/api'
 
@@ -15,7 +14,6 @@ function SubjectVideos(props){
     const subject = props.match.params.subject
 
     const topic = props.match.params.topic
-    const { push } = useHistory()
     useEffect(() => {
         async function fetchLoadVideos(){
             const response = await api.get(`/Video/list/${ topic }`)
@@ -34,7 +32,7 @@ function SubjectVideos(props){
 
         <div id="subject-videos">
             <div className="header">
-                <Header to={`/subject/${subject}`} title={ subject } userName="Tiago Luchtenberg"/>
+                <Header to={`/subject/${subject}`} title={ topic }/>
                 <HeaderBottom title={ `Estes são os vídeos  sobre ${ topic.toLowerCase() }` }/>
             </div>
 

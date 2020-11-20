@@ -16,16 +16,16 @@ function HelperItem({ image, name, subjects, classification, bio, givenHelpers }
                     
                     <div className="photo-name-subjects">
                         <div className="img-helper">
-                            <img src={image} alt="bia"/>
+                            {image ? <img src={image} alt={name}/> : <></>}
                         </div>
                         <div className="helper-name-subject">
                             <h2 className="name-helper">{ name }</h2>
 
                             <div className="subjects-helper">
-                                {subjects.map(subject =>(
+                                {subjects.map((subject, index) =>(
                                     <Subject
-                                        name= {subject.subject}
-                                        color={subject.color}
+                                        key={ index }
+                                        name= {subject}
                                         boxWidth="130px"
                                         fontSize="12px"
                                         circleWidth="10px"
@@ -48,7 +48,7 @@ function HelperItem({ image, name, subjects, classification, bio, givenHelpers }
                 </div>
 
                 <div className="bio-helper">
-                    <h4>{ bio }</h4>
+                    <pre>{ bio }</pre>
                 </div>
             </div>
 
