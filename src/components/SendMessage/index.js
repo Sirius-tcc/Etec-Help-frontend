@@ -11,7 +11,7 @@ import ScheduleImg from '../../assets/images/schedule.svg'
 import './styles.css'
 import './modal.css'
 
-function SendMenssage(){
+function SendMenssage({ onSubmit, onChange, value }){
 
     const [show, setShow] = useState(false)
 
@@ -19,16 +19,16 @@ function SendMenssage(){
     return(
         <>
     
-            <div id="send-menssage">
+            <form id="send-menssage" onSubmit= { onSubmit  } >
                 <div className="send-menssage">
-                    <input placeholder="Digite uma mensagem" className="input"/>
+                    <input placeholder="Digite uma mensagem" value={ value  } className="input" onChange={onChange}/>
                     
                     <div className="schedule" onClick={ () => { setShow(true) }}>
                         <img src={ScheduleImg} alt="schedule"/>
                     </div>
                 </div>
                 
-            </div>
+            </form>
             
 
         { show?

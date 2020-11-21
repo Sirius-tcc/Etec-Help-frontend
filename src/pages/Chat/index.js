@@ -8,40 +8,40 @@ import SendMessage from '../../components/SendMessage'
 import Message from '../../components/Message'
 import { useHistory } from 'react-router-dom'
 import { getTypeUser, getUserId } from '../../scripts/getTokenData'
-
-
-import listAllMensages from './listAllMensages'
+import openSocket from 'socket.io-client';
+import api from '../../services/api'
+import { useState } from 'react'
 
 
 import './styles.css'
-import api from '../../services/api'
-import { useState } from 'react'
+
 
 function Chat(props){
 
     const id = props.match.params.id
 
-    const listMessages = listAllMensages()
-
-
     const { push } = useHistory()
-    const loadTotheBottom = () =>{
-        document.querySelector(".chat-").scrollTo(0, document.querySelector(".chat-").scrollHeight)
-    }
+    
 
     const [ listChat, setListChat ] = useState([])
     const [ receiver, setReceiver ] = useState({})
     const [ listHelps, setlistHelps ] = useState(null)
-
+    const [ messages, setMessages ] = useState([])
+    const [ message, setMessage ] = useState('')
+    
+    const  socket = openSocket('http://localhost:3333/');
 
     useEffect(() => {
+        socket.on('listChat', ( chatList )=>{
+            setListChat(chatList)
+        })
+
         async function listChat(){
 
             if( getTypeUser() === "student" ){
                 const res = await api.get(`/chat/listStudentChat/${ getUserId() }`)
                 const data = res.data.data
                 setListChat(data)
-                console.log(data[0])
             }
         }
 
@@ -54,7 +54,6 @@ function Chat(props){
                         const res = await api.get(`/helper/show/${ id }`)
                         const data = res.data.data[0]
                         setReceiver(data)
-                        console.log(data)
                     }
             }else{
 
@@ -69,13 +68,28 @@ function Chat(props){
 
                 if(data.sucess){
                     setlistHelps(data.data)
-                    console.log(data.data)
                 }else{
                     setlistHelps([])
                 }
             }
         }
 
+        socket.on('receivedMessage', ( messages )=>{
+            setMessages(messages)
+        })
+
+
+        async function Messages() {
+            if( getTypeUser() === "student" ){
+                const res = await api.get(`/chat/Messages?helper=${id}&student=${getUserId()}`)
+                const  data = res.data
+                if(data.sucess){
+                    setMessages(data.data)
+                }
+            }
+        }
+
+        Messages()
         listChat()
         getReceiver()
         listHelps()
@@ -277,21 +291,59 @@ function Chat(props){
 
                 <div id="chat-content">
 
-                    <div className="chat-" onLoad={loadTotheBottom}>
+                    <div className="chat-">
 
-                        {listMessages.map((msg, index) =>(
-                            <Message
-                                key={index}
-                                img={ msg.img }
-                                name={ msg.name }
-                                message={ msg.message }
-                                data={ msg.data }
-                                hour={ msg.hour }
-                            />)
-                        )}
+                        {!!messages &&
+                            messages.map((msg, index) =>(
+                                <Message
+                                    key={index}
+                                    img={ msg.photo }
+                                    name={ msg.name }
+                                    message={ msg.message }
+                                    data={ msg.date }
+                                    hour={ msg.time }
+                                />)
+                        )
+                    
+                    }
                     </div>
                     
-                    <SendMessage />
+                    <SendMessage
+                        value={ message }
+                        onSubmit ={ (e) =>{
+                            e.preventDefault()
+
+                            
+                            if(message.length){
+                                let helper_code;
+                                let student_code;
+
+                                if(getTypeUser() === "student"){
+                                    helper_code = Number(id)
+                                    student_code = getUserId()
+                                }else{
+                                    helper_code = getUserId()
+                                    student_code = Number(id)
+                                }
+
+                                const user = getTypeUser()
+
+                                const messageObject = {
+                                    menssage : message,
+                                    helper_code: helper_code,
+                                    student_code: student_code,
+                                    user : user,
+                                }
+
+                                socket.emit('sendMessage', messageObject)
+                                setMessage('')
+
+                            }
+
+                        }} 
+
+                        onChange ={ (e) =>{ setMessage(e.target.value) }}
+                    />
                 </div>
 
             </div>
@@ -299,14 +351,5 @@ function Chat(props){
 
     )
 }
-/*
- <Subject 
-    name="Matemática"
-    boxBoderRadius="16px"
-    circleWidth="8px"
-    fontSize="10px"
-    color="#FCFF70"
-    padding="0px"
-/>
- */
+
 export default Chat
