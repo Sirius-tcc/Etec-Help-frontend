@@ -1,6 +1,6 @@
 const express = require('express')
 const cors = require('cors')
-const path = require('path');
+//const path = require('path');
 const axios = require('axios')
 
 const app = express()
@@ -24,23 +24,14 @@ io.on('connection', socket => {
     socket.on('sendMessage', data => { 
         axios.put('http://localhost:8080/Coisas/backend/chat/sendMessage', data).then(() =>{
 
-            axios.get(`http://localhost:8080/Coisas/backend/chat/Messages?helper=${data.helper_code}&student=${data.student_code}`).then((res)=>{
-                socket.broadcast.emit('receivedMessage', res.data.data)
-            })
-
-            if (data.user === "student"){
-                axios.get(`http://localhost:8080/Coisas/backend/chat/listStudentChat/${data.student_code}`).then((res)=>{
-                socket.broadcast.emit('listChat', res.data.data)
-            })
-            }else{
-
-            }
-
+            axios.get(`http://localhost:8080/Coisas/backend/chat/Messages?helper=${data.helper_code}&student=${data.student_code}`)
+                .then((res)=>{
+                    socket.broadcast.emit('receivedMessage', res.data.data)
+                })
+                socket.broadcast.emit('listChat')
         });
-
     })
 
-    
 })
 
-server.listen(3333)
+server.listen(3001)

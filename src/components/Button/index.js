@@ -13,7 +13,7 @@ function Button({ buttonName, send=true, loading=false, ...rest }){
         ) : (
 
             !loading ? (
-                <button className="button" {...rest }>
+                <button className="button"  {...rest }>
                     { buttonName }
                 </button>
             ) : (

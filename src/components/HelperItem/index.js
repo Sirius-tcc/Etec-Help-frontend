@@ -2,12 +2,15 @@ import React from 'react'
 import Subject from '../Subject'
 import Classification from '../Classification'
 import Button from '../Button'
+import { useHistory } from 'react-router-dom'
 
 import './styles.css'
 import './responsive.css'
 
-function HelperItem({ image, name, subjects, classification, bio, givenHelpers }){
+function HelperItem({id,  image, name, subjects, classification, bio, givenHelpers }){
 
+
+    const { push } = useHistory()
     return(
         <div id="helper-item">
 
@@ -58,7 +61,11 @@ function HelperItem({ image, name, subjects, classification, bio, givenHelpers }
                 <h5>{`Já ajudou ${givenHelpers} alunos`}</h5>
                 
                 <div className="contact-button">
-                    <Button buttonName="Entrar em contato"/>
+                    <Button buttonName="Entrar em contato"
+                        onClick = { () => {
+                            push(`/student/chat/${id}`)
+                        }}
+                    />
                 </div>
             </div>
         </div>

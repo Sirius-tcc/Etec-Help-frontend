@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import Subject from '../../components/Subject'
 import HeaderHome from '../../components/HeaderHome'
 import UserChat from '../../components/UserChat'
@@ -7,10 +7,14 @@ import Helps from '../../components/Helps'
 import SendMessage from '../../components/SendMessage'
 import Message from '../../components/Message'
 import { useHistory } from 'react-router-dom'
+import LogoImage from '../../assets/images/LogoImage.svg'
+
+import { toast } from 'react-toastify'
+
 import { getTypeUser, getUserId } from '../../scripts/getTokenData'
+
 import openSocket from 'socket.io-client';
 import api from '../../services/api'
-import { useState } from 'react'
 
 
 import './styles.css'
@@ -29,17 +33,106 @@ function Chat(props){
     const [ messages, setMessages ] = useState([])
     const [ message, setMessage ] = useState('')
     
-    const  socket = openSocket('http://localhost:3333/');
+    const  socket = openSocket('http://localhost:3001/');
 
+    async function handleAcceptRequest(helper_code){ 
+      
+
+        const resp = await api.put(`/help/status/${ helper_code }`, { status_code : 2 })
+        const data  = resp.data
+
+        if(!data.sucess){
+            toast.error('Erro ao aceitar pedido!')
+            console.log(data.data)
+        }
+
+
+        if( getTypeUser() === "student" ){
+            api.get(`/help/list?helper_code=${id}&student_code=${getUserId()}`)
+                .then(res => {
+                    const data = res.data
+
+                    if(data.sucess){
+                        setlistHelps(data.data)
+                    }else{
+                        setlistHelps([])
+                    }
+                })
+        }else {
+            api.get(`/help/list?helper_code=${getUserId()}&student_code=${id}`)
+                .then(res => {
+                    const data = res.data
+                    if(data.sucess){
+                        setlistHelps(data.data)
+                    }else{
+                        setlistHelps([])
+                    }
+                })    
+        }
+    }
+
+
+    async function handleCancelRequest(helper_code){
+
+
+        const resp = await api.put(`/help/status/${ helper_code }`, { status_code : 3 })
+        const data  = resp.data
+
+        if(!data.sucess){
+            toast.error('Erro ao aceitar pedido!')
+            console.log(data.data)
+        }
+
+
+        if( getTypeUser() === "student" ){
+            api.get(`/help/list?helper_code=${id}&student_code=${getUserId()}`)
+                .then(res => {
+                    const data = res.data
+
+                    if(data.sucess){
+                        setlistHelps(data.data)
+                    }else{
+                        setlistHelps([])
+                    }
+                })
+        }else {
+            api.get(`/help/list?helper_code=${getUserId()}&student_code=${id}`)
+                .then(res => {
+                    const data = res.data
+                    if(data.sucess){
+                        setlistHelps(data.data)
+                    }else{
+                        setlistHelps([])
+                    }
+                })    
+        }
+    }
     useEffect(() => {
-        socket.on('listChat', ( chatList )=>{
-            setListChat(chatList)
+        socket.on('listChat', ( )=>{
+            if( getTypeUser() === "student" ){
+                api.get(`/chat/listStudentChat/${ getUserId() }`)
+                    .then(res =>{
+                        const data = res.data.data
+                        setListChat(data)
+                    })
+                
+            }else{
+                api.get(`/chat/listHelperChat/${ getUserId() }`)
+                .then(res =>{
+                    const data = res.data.data
+                    setListChat(data)
+                })
+            }
         })
 
         async function listChat(){
 
             if( getTypeUser() === "student" ){
                 const res = await api.get(`/chat/listStudentChat/${ getUserId() }`)
+                const data = res.data.data
+                setListChat(data)
+            }else{
+                const res = await api.get(`/chat/listHelperChat/${ getUserId() }`)
                 const data = res.data.data
                 setListChat(data)
             }
@@ -50,8 +143,11 @@ function Chat(props){
             if(Number(id) !== 0)
             {
                     if( getTypeUser() === "student" ){
-
                         const res = await api.get(`/helper/show/${ id }`)
+                        const data = res.data.data[0]
+                        setReceiver(data)
+                    }else{
+                        const res = await api.get(`/student/show/${ id }`)
                         const data = res.data.data[0]
                         setReceiver(data)
                     }
@@ -63,9 +159,18 @@ function Chat(props){
 
         async function listHelps(){
             if( getTypeUser() === "student" ){
-                const res = await api.get(`/help/list/${id}`)
+                const res = await api.get(`/help/list?helper_code=${id}&student_code=${getUserId()}`)
                 const data = res.data
 
+                if(data.sucess){
+                    setlistHelps(data.data)
+                }else{
+                    setlistHelps([])
+                }
+            }else {
+                const res = await api.get(`/help/list?helper_code=${getUserId()}&student_code=${id}`)
+                const data = res.data
+                console.log()
                 if(data.sucess){
                     setlistHelps(data.data)
                 }else{
@@ -75,13 +180,37 @@ function Chat(props){
         }
 
         socket.on('receivedMessage', ( messages )=>{
-            setMessages(messages)
+
+            if(getTypeUser()=== "student"){
+                if(
+                    messages[0].student_code === getUserId() &&
+                    messages[0].helper_code===Number(id)
+                    
+                ){
+                    setMessages(messages)
+                }
+
+            }else{
+                if(
+                    messages[0].student_code === Number(id) &&
+                    messages[0].helper_code===getUserId()
+                ){
+                    setMessages(messages)
+                }
+            }
+
         })
 
 
         async function Messages() {
             if( getTypeUser() === "student" ){
                 const res = await api.get(`/chat/Messages?helper=${id}&student=${getUserId()}`)
+                const  data = res.data
+                if(data.sucess){
+                    setMessages(data.data)
+                }
+            }else{
+                const res = await api.get(`/chat/Messages?helper=${getUserId()}&student=${id}`)
                 const  data = res.data
                 if(data.sucess){
                     setMessages(data.data)
@@ -187,12 +316,18 @@ function Chat(props){
                                         key={key}
                                         img={user.photo}
                                         notifications={user.notifications}
-                                        selected={ user.helper_code === Number(id)  }
+                                        selected={ 
+                                            getTypeUser() === "student" ? (
+                                                user.helper_code === Number(id)  
+                                            ) : (
+                                                user.student_code === Number(id)  
+                                            )
+                                        }
                                         onClick ={ () =>{
                                             if(getTypeUser() === "student"){
                                                 push(`/student/chat/${user.helper_code}`)
                                             }else{
-
+                                                push(`/student/chat/${user.student_code}`)
                                             }
                                         }}
                                     />
@@ -231,7 +366,13 @@ function Chat(props){
                             listHelps.map((help, key)=>(
                                 <Helps
                                     key={key} 
-                                    who={ help.helper_name }
+                                    id = { help.help_code }
+                                    who={ 
+                                        getTypeUser() === "helper" && 
+                                        help.helper_code === getUserId() ? 
+                                            ("Você") : 
+                                                (help.helper_name )
+                                    }
                                     title={ help.title }
                                     description={ help.description }
                                     date={ help.date }
@@ -239,6 +380,8 @@ function Chat(props){
                                     status={ help.status_code }
                                     subject={ help.subject_name }
                                     location={help.local}
+                                    handleAcceptRequest = {()=>{handleAcceptRequest(help.help_code) }}
+                                    handleCancelRequest = {()=>{handleCancelRequest(help.help_code) }}
                                 />
                             ))
                         ) : (
@@ -290,60 +433,67 @@ function Chat(props){
 
 
                 <div id="chat-content">
+                    { id !== "0" ?
+                        <>
+                            <div className="chat-">
 
-                    <div className="chat-">
-
-                        {!!messages &&
-                            messages.map((msg, index) =>(
-                                <Message
-                                    key={index}
-                                    img={ msg.photo }
-                                    name={ msg.name }
-                                    message={ msg.message }
-                                    data={ msg.date }
-                                    hour={ msg.time }
-                                />)
-                        )
-                    
-                    }
-                    </div>
-                    
-                    <SendMessage
-                        value={ message }
-                        onSubmit ={ (e) =>{
-                            e.preventDefault()
-
+                                {!!messages &&
+                                    messages.map((msg, index) =>(
+                                        <Message
+                                            key={index}
+                                            img={ msg.photo }
+                                            name={ msg.name }
+                                            message={ msg.message }
+                                            data={ msg.date }
+                                            hour={ msg.time }
+                                        />)
+                                )
                             
-                            if(message.length){
-                                let helper_code;
-                                let student_code;
-
-                                if(getTypeUser() === "student"){
-                                    helper_code = Number(id)
-                                    student_code = getUserId()
-                                }else{
-                                    helper_code = getUserId()
-                                    student_code = Number(id)
-                                }
-
-                                const user = getTypeUser()
-
-                                const messageObject = {
-                                    menssage : message,
-                                    helper_code: helper_code,
-                                    student_code: student_code,
-                                    user : user,
-                                }
-
-                                socket.emit('sendMessage', messageObject)
-                                setMessage('')
-
                             }
+                            </div>
+                            
+                            <SendMessage
+                                value={ message }
+                                onSubmit ={ (e) =>{
+                                    e.preventDefault()
+                                    if(message.length){
+                                        let helper_code;
+                                        let student_code;
 
-                        }} 
+                                        if(getTypeUser() === "student"){
+                                            helper_code = Number(id)
+                                            student_code = getUserId()
+                                        }else{
+                                            helper_code = getUserId()
+                                            student_code = Number(id)
+                                        }
 
-                        onChange ={ (e) =>{ setMessage(e.target.value) }}
-                    />
+                                        const user = getTypeUser()
+
+                                        const messageObject = {
+                                            menssage : message,
+                                            helper_code: helper_code,
+                                            student_code: student_code,
+                                            user : user,
+                                        }
+
+                                        socket.emit('sendMessage', messageObject)
+                                        setMessage('')
+
+                                    }
+
+                                }} 
+
+                                onChange ={ (e) =>{ setMessage(e.target.value) }}
+                            />
+                        </> 
+                        :
+                        <div className="logoContainer" >
+                            <img src={LogoImage} alt="logo Etec Help" />
+                            <h1>Seja bem-vindo ao chat!</h1>
+                        </div>
+                    }
+                    
                 </div>
 
             </div>

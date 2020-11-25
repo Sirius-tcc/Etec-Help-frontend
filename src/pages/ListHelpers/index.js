@@ -66,6 +66,7 @@ function ListHelpers(){
                     {
                         helpers.map( helper => (
                             <HelperItem
+                                id={ helper.code  } 
                                 key={ helper.code }
                                 image = { helper.photo }
                                 name={`${helper.name} ${helper.surname}`}

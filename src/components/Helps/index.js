@@ -1,11 +1,15 @@
 import React, { useState} from 'react'
 import Classification from '../Classification'
+import Button from '../../components/Button'
+import { toast } from 'react-toastify'
+
+import api from '../../services/api'
 
 import './styles.css'
 import './modal.css'
 
 
-export default function GivenHelps({ who, title, description, status, date, stars, subject, location })
+export default function GivenHelps({ id, who, title, description, status, date, stars, subject, location, handleAcceptRequest, handleCancelRequest })
 {
     const [show, setShow] = useState(false)
 
@@ -14,13 +18,13 @@ export default function GivenHelps({ who, title, description, status, date, star
         {status : "Confirmado", color:"#9FFFA9"},
         {status : "Recusado", color:"#FF9F9F"}
     ]
-
-
+    
+    
     return(
 
         <>
-            <div id="given-helps"onClick={ ()=>{ setShow(true) }}>
-                <div className="content click">
+            <div id="given-helps">
+                <div className="content"  onClick={ ()=>{ setShow(true) }} >
                     <div className="title">
                             <h4> {`${who}`} deu um help </h4>
                     </div>
@@ -50,8 +54,19 @@ export default function GivenHelps({ who, title, description, status, date, star
                                 <span className="subject">{subject}</span>
                             </div>
                         </div>
-                        
                 </div>
+                {
+                            Number(status) === 1 ? (
+                                <>
+                                    <div className="helper-request-button">
+                                        <Button onClick={ handleAcceptRequest } buttonName="Aceitar"/>
+
+                                        
+                                        <Button onClick={ handleCancelRequest } buttonName="Recusar" />
+                                    </div>
+                                </> 
+                            ): (<></>)
+                        }
             </div>
 
 

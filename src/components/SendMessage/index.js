@@ -5,6 +5,7 @@ import InputForm from '../InputForm'
 import TextArea from '../TextArea'
 import Select from '../Select'
 import Button from '../Button'
+import { getTypeUser } from '../../scripts/getTokenData'
 
 import ScheduleImg from '../../assets/images/schedule.svg'
 
@@ -23,9 +24,13 @@ function SendMenssage({ onSubmit, onChange, value }){
                 <div className="send-menssage">
                     <input placeholder="Digite uma mensagem" value={ value  } className="input" onChange={onChange}/>
                     
-                    <div className="schedule" onClick={ () => { setShow(true) }}>
-                        <img src={ScheduleImg} alt="schedule"/>
-                    </div>
+                    {
+                        getTypeUser() === "student" && 
+                            <div className="schedule" onClick={ () => { setShow(true) }}>
+                                <img src={ScheduleImg} alt="schedule"/>
+                            </div>
+                    }
+                    
                 </div>
                 
             </form>
