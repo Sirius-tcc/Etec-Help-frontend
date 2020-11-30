@@ -52,9 +52,11 @@ function ListHelpers(){
                     <div className="filter-subject">
                         <Select 
                             name="Filtrar por matéria"
-                            options={['Matemática', 'Programação'] }
+                            isObject={false}
+                            options={['Ambos', 'Matemática', 'Programação'] }
                             onClick={ (e)=>{
-                                const subject = e.target.value 
+                                let subject = e.target.value 
+                                subject = subject === "Ambos" ? '' : subject
                                 fetchHelperBySubject(subject)
                             }}
                         />

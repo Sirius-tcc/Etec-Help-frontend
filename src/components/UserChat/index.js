@@ -13,7 +13,7 @@ function UserChat({ img, notifications, selected, ...rest }){
             <div id="user-chat" { ...rest }>
                 {selected?<div className="selected"/>:<></>}
 
-                <div className="user">
+                <div className={`user ${selected ? "border" : "" }`}>
                     <Link to="/chat">
                         {img?<img src={ img } alt=""/>:""}
                     </Link>

@@ -56,6 +56,57 @@
     background-color: var(--color-cancel-red-button);
 }
 
+#given-helps .classify-helper-stars {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    margin-bottom: 20px; 
+}
+
+#given-helps .classify-helper-stars span{
+    font-weight: bold;
+    font-family: Archivo ;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    
+}
+
+#given-helps .classify-helper-stars #classification{
+    direction: rtl;
+}
+#given-helps .classify-helper-stars img{
+    opacity: 0.4;
+    transition: 0.5s;
+}
+
+#given-helps .classify-helper-stars img:hover{
+    opacity: 1;
+}
+
+#given-helps .classify-helper-stars img.star1:hover ~ img{
+    opacity: 1;
+}
+
+#given-helps .classify-helper-stars img.star2:hover ~ img{
+    opacity: 1;
+}
+
+#given-helps .classify-helper-stars img.star3:hover ~ img{
+    opacity: 1;
+}
+
+#given-helps .classify-helper-stars img.star4:hover ~ img{
+    opacity: 1;
+}
+
+#given-helps .classify-helper-stars img.star5:hover ~ img{
+    opacity: 1;
+}
+
+
+
 #given-helps .content .row{
     width: 100%;
     height: auto;
@@ -67,13 +118,14 @@
 }
 
 #given-helps .content .row h5{
-
     font-family: Archivo;
     font-style: normal;
     font-weight: bold;
     font-size: 14px;
     margin-right: 12px;
 }
+
+
 
 #given-helps .content .row span{
     width: 100%;
@@ -112,3 +164,4 @@
     font-weight: bold;
     font-size: 14px;
 }
+

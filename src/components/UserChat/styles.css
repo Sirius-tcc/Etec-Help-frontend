@@ -83,3 +83,7 @@
     overflow: hidden;
     align-self: center;
 }
+
+#user-chat .user.border{
+    border-radius: 35%;
+}

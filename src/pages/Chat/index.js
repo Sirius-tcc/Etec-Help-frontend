@@ -35,6 +35,9 @@ function Chat(props){
     
     const  socket = openSocket('http://localhost:3001/');
 
+
+
+    
     async function handleAcceptRequest(helper_code){ 
       
 
@@ -46,35 +49,13 @@ function Chat(props){
             console.log(data.data)
         }
 
+        updateSocketIO()
 
-        if( getTypeUser() === "student" ){
-            api.get(`/help/list?helper_code=${id}&student_code=${getUserId()}`)
-                .then(res => {
-                    const data = res.data
-
-                    if(data.sucess){
-                        setlistHelps(data.data)
-                    }else{
-                        setlistHelps([])
-                    }
-                })
-        }else {
-            api.get(`/help/list?helper_code=${getUserId()}&student_code=${id}`)
-                .then(res => {
-                    const data = res.data
-                    if(data.sucess){
-                        setlistHelps(data.data)
-                    }else{
-                        setlistHelps([])
-                    }
-                })    
-        }
+       
     }
 
 
     async function handleCancelRequest(helper_code){
-
-
         const resp = await api.put(`/help/status/${ helper_code }`, { status_code : 3 })
         const data  = resp.data
 
@@ -83,29 +64,20 @@ function Chat(props){
             console.log(data.data)
         }
 
+      updateSocketIO()
+      
+    }
 
-        if( getTypeUser() === "student" ){
-            api.get(`/help/list?helper_code=${id}&student_code=${getUserId()}`)
-                .then(res => {
-                    const data = res.data
+    
+    const updateSocketIO = () => {
 
-                    if(data.sucess){
-                        setlistHelps(data.data)
-                    }else{
-                        setlistHelps([])
-                    }
-                })
-        }else {
-            api.get(`/help/list?helper_code=${getUserId()}&student_code=${id}`)
-                .then(res => {
-                    const data = res.data
-                    if(data.sucess){
-                        setlistHelps(data.data)
-                    }else{
-                        setlistHelps([])
-                    }
-                })    
+        const data = {
+            id : id,
+            user: getTypeUser(),
+            userId : getUserId()
+
         }
+        socket.emit('confirmRating', data)
     }
     useEffect(() => {
         socket.on('listChat', ( )=>{
@@ -156,6 +128,11 @@ function Chat(props){
             }
             
         }
+
+        socket.on('confirmRating', ( helps )=>{
+            setlistHelps(helps)
+            console.log(helps)
+        })
 
         async function listHelps(){
             if( getTypeUser() === "student" ){
@@ -382,6 +359,7 @@ function Chat(props){
                                     location={help.local}
                                     handleAcceptRequest = {()=>{handleAcceptRequest(help.help_code) }}
                                     handleCancelRequest = {()=>{handleCancelRequest(help.help_code) }}
+                                    code_chat ={id}
                                 />
                             ))
                         ) : (
@@ -453,6 +431,7 @@ function Chat(props){
                             </div>
                             
                             <SendMessage
+                                id = { id }
                                 value={ message }
                                 onSubmit ={ (e) =>{
                                     e.preventDefault()

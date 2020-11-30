@@ -1,6 +1,7 @@
 const express = require('express')
 const cors = require('cors')
 //const path = require('path');
+
 const axios = require('axios')
 
 const app = express()
@@ -30,6 +31,32 @@ io.on('connection', socket => {
                 })
                 socket.broadcast.emit('listChat')
         });
+    })
+
+
+    
+    socket.on('confirmRating', data => {
+        if( data.user === "student" ){
+            axios.get(`http://localhost:8080/Coisas/backend/help/list?helper_code=${data.id}&student_code=${data.userId}`).then( res => {
+                const data = res.data
+                if(data.sucess){
+                    socket.broadcast.emit('confirmRating', data.data)
+                }else{
+                    socket.broadcast.emit([], data.data)
+                }
+            })
+           
+        }else {
+            axios.get(`http://localhost:8080/Coisas/backend/help/list?helper_code=${data.userId}&student_code=${data.id}`).then( res => {
+                const data = res.data
+                if(data.sucess){
+                    socket.broadcast.emit('confirmRating', data.data)
+                }else{
+                    socket.broadcast.emit([], data.data)
+                }
+            })
+            
+        }
     })
 
 })

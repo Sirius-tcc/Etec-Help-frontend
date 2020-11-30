@@ -7,11 +7,17 @@ import api from '../../services/api'
 
 import './styles.css'
 import './modal.css'
+import { getTypeUser, getUserId } from '../../scripts/getTokenData'
+
+import openSocket from 'socket.io-client';
+
+const  socket = openSocket('http://localhost:3001/');
 
 
-export default function GivenHelps({ id, who, title, description, status, date, stars, subject, location, handleAcceptRequest, handleCancelRequest })
+export default function GivenHelps({ id, who, title, description, status, date, stars, subject, location, handleAcceptRequest, handleCancelRequest, code_chat })
 {
     const [show, setShow] = useState(false)
+    const [isStarClicked, setIsStarClicked] = useState(false)
 
     const statusArray = [
         {status : "Pendente", color:"#FCFF70"},
@@ -26,7 +32,14 @@ export default function GivenHelps({ id, who, title, description, status, date, 
             <div id="given-helps">
                 <div className="content"  onClick={ ()=>{ setShow(true) }} >
                     <div className="title">
-                            <h4> {`${who}`} deu um help </h4>
+                            <h4> {`${who} `} 
+                                {
+                                    Number(status) ===1 ? ("recebeu pedido de ") : (
+                                        Number(status) === 2 ? ("deu um ") : ("recusou ")
+                                    )
+                                } 
+                                    help 
+                            </h4>
                     </div>
                         
                         <div className="body">
@@ -56,16 +69,55 @@ export default function GivenHelps({ id, who, title, description, status, date, 
                         </div>
                 </div>
                 {
-                            Number(status) === 1 ? (
+                            Number(status) === 1  && getTypeUser()==="helper" ? (
                                 <>
                                     <div className="helper-request-button">
                                         <Button onClick={ handleAcceptRequest } buttonName="Aceitar"/>
-
                                         
                                         <Button onClick={ handleCancelRequest } buttonName="Recusar" />
                                     </div>
                                 </> 
-                            ): (<></>)
+                            ): (Number(status) === 2 && getTypeUser()==="student" && stars < 1 && !isStarClicked ? (
+                                    <div  className="classify-helper-stars">
+
+                                        <span>Classifique a ajuda!</span>
+                                        <Classification 
+                                            classification={5}
+                                            width="22px"
+                                            getStarsNumber = { e =>{
+                                                setIsStarClicked(true)
+                                                // get the star number on the event clicke
+                                                const rating = 
+                                                (e.target.getAttribute('value'))
+
+                                                if (rating > 5){ return } 
+
+                                                api.put(`/help/classification/${id}`, {
+                                                    "stars": rating
+                                                }).then(res => {
+                                                    if(!res.data.sucess){
+                                                        toast.error("Houve erro ao avaliar ajuda!")
+                                                        console.log(res.data.data)
+                                                        setIsStarClicked(false)
+                                                    }else {
+
+                                                        const data = {
+                                                            id : code_chat,
+                                                            user: getTypeUser(),
+                                                            userId : getUserId()
+
+                                                        }
+                                                        socket.emit('confirmRating', data)
+                                                    }
+
+
+                                                })
+                                                
+                                            } }
+                                            
+                                        />
+                                    </div>
+                            ) :(<></>))
                         }
             </div>
 

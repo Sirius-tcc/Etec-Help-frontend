@@ -58,7 +58,7 @@ function HelperItem({id,  image, name, subjects, classification, bio, givenHelpe
             <hr/>
 
             <div className="contacts">
-                <h5>{`Já ajudou ${givenHelpers} alunos`}</h5>
+                <h5>{`Já ajudou ${givenHelpers} vezes`}</h5>
                 
                 <div className="contact-button">
                     <Button buttonName="Entrar em contato"
