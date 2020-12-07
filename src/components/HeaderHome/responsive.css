@@ -71,7 +71,12 @@
         width: 120px;
         height: 120px;
     }
+    header.page-header.on .header-content .user .user-img img{
+        width: 120px;
+        height: 120px;
+    }
 
+    
     header.page-header.on .header-content .user h2{
         margin-top: 16px;
         font-size: 24px;

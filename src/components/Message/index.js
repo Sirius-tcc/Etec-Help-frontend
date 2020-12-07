@@ -11,6 +11,7 @@ function Message({ img, name, message, data, hour }){
                 
                 <div className="photo-user">
                     <img src={img} alt=""/>
+                    
                 </div>
 
                 <div className="other-menssage">

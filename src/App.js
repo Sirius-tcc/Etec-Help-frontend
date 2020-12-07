@@ -1,12 +1,14 @@
 import React from 'react';
 import './assets/styles/global.css';
-
-
-import Routes from './Routes';
+import { ToastContainer } from 'react-toastify';
+import Routes from './routes/Routes';
 
 function App() {
   return (
-      <Routes/>
+      <>
+        <ToastContainer />
+        <Routes/>
+      </>
   );
 }
 

@@ -12,7 +12,7 @@ function Topic({ img, name, topic }){
         <div id="topic">
             <Link to={`/subject/${topic}/${name}/videos`}>
                 <div className="img-container">
-                    <img src={ require(`../../assets/images/${img}`) } alt=""/>
+                    <img src={ img } alt={ name }/>
                 </div>
                 
                 <h2>

@@ -123,6 +123,7 @@
     }
     
     header.header.on .user .user-img{
+        position: relative;
         width: 120px;
         height: 120px;
         border-radius: 50%;
@@ -130,7 +131,14 @@
         margin-bottom: 10px;
         cursor: pointer;
     }
-    
+    header.header.on .user .user-img img{
+        position: absolute;
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        background-color: var(--color-grey-light);
+        margin-bottom: 10px;
+    }
     header.header.on .user h2{
         font-family: Poppins;
         font-style: normal;

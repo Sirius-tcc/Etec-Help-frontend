@@ -5,7 +5,7 @@ import './styles.css'
 
 
 
-function InputLogin({ first=false, last=false, name, ...rest }) {
+function InputLogin({ first=false, last=false, name, error, ...rest }) {
 
 
     let classProperty = first?'radius-first':"" 
@@ -17,7 +17,10 @@ function InputLogin({ first=false, last=false, name, ...rest }) {
 
     
     return(
-        <input className={ classProperty } id={ name }  {...rest}/>
+        !error ? 
+            (<input className={ classProperty } id={ name }  {...rest}/>) 
+        :
+            (<input className={ `${classProperty} error` } id={ name }  {...rest}/>)
     );
     
 }

@@ -135,7 +135,7 @@
     grid-area: chat;
 }
 
-#chat .chat-content-grid #chat-content .chat-{
+#chat .chat-content-grid #chat-content .chat- {
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -143,4 +143,24 @@
     overflow-y: auto;
     width: 100%;
     height: 100%;
+    flex-direction: column-reverse;
+}
+
+#chat .chat-content-grid #chat-content .logoContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+}
+
+#chat .chat-content-grid #chat-content .logoContainer img{
+    width: 260px;
+    margin-bottom: 22px;
+}
+
+#chat .chat-content-grid #chat-content .logoContainer h1{
+    color: var(--color-background-hover);
+    font-weight: 600;
 }

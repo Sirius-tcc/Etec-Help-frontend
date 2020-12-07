@@ -24,6 +24,13 @@ header.header{
 header.header .user{
     display: none;
 }
+
+header.header .user .user-img img{
+    object-fit: cover;
+    width: 120px;
+    height: 120px;
+}
+
 .header .header-content .title h1{
     font-family: Archivo, sans-serif;
     font-style: normal;

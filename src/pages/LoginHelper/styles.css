@@ -23,10 +23,6 @@
     align-items: center;
 }
 
-#page-login-helper .login-container .form form .login-features .rememberMe span{
-    margin-left: 10px;
-    font-size: 14px;
-}
 
 #page-login-helper .login-container .form form .login-features a{
     text-decoration: none;

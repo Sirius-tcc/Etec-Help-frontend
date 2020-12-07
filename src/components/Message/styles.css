@@ -1,10 +1,11 @@
 #message{
     width: 100%;
 
-    padding: 4px 40px;
-    margin: 6px 0;
+    padding: 14px 40px;
 }
-
+#message:hover{
+    background-color: #292E33
+}
 #message .message {
     display: flex;
     width: 100%; 
@@ -17,13 +18,14 @@
     width: 40px;
     height:  40px;
     margin-right: 16px;
+    border-radius: 50%;
 }
 
 #message .message .photo-user img{
     width: 40px;
     height:  40px;
     border-radius: 50%;
-
+    object-fit: cover;
 }
 
 #message .message .other-menssage{

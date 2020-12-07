@@ -25,6 +25,9 @@
     overflow: hidden;
 }
 
+#topic .img-container img{
+    object-fit: cover;
+}
 
 
 #topic a h2{

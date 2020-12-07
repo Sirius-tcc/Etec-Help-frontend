@@ -12,6 +12,21 @@
 
 .button:hover{
     opacity: 0.8;
-
 }
 
+.opacity{
+    opacity: 0.3;
+    cursor: default;
+}
+
+.button:hover.opacity{
+    opacity: 0.3 ;
+}
+
+.button.loading{
+    opacity: 0.8 ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: default;
+}

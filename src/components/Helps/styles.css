@@ -1,19 +1,20 @@
 #given-helps{
-    width: auto;
+    width: 238px;
+    
     height: auto;
     margin: 10px 0;
     cursor: pointer;
     overflow: hidden;
+    border-radius: 8px;
+    background-color: var(--color-background);
 }
 
 #given-helps .content{
-    width: 235px;
     min-height: 130px;
     height: auto;
     max-height: 180px;
 
-    background-color: var(--color-background);
-    border-radius: 8px;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -37,6 +38,74 @@
     align-items: flex-start;
     
 }
+#given-helps  .helper-request-button {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+#given-helps .helper-request-button .button{
+    width: 40%;
+}
+
+#given-helps .helper-request-button .button + .button {
+    background-color: var(--color-cancel-red-button);
+}
+
+#given-helps .classify-helper-stars {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    margin-bottom: 20px; 
+}
+
+#given-helps .classify-helper-stars span{
+    font-weight: bold;
+    font-family: Archivo ;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    
+}
+
+#given-helps .classify-helper-stars #classification{
+    direction: rtl;
+}
+#given-helps .classify-helper-stars img{
+    opacity: 0.4;
+    transition: 0.5s;
+}
+
+#given-helps .classify-helper-stars img:hover{
+    opacity: 1;
+}
+
+#given-helps .classify-helper-stars img.star1:hover ~ img{
+    opacity: 1;
+}
+
+#given-helps .classify-helper-stars img.star2:hover ~ img{
+    opacity: 1;
+}
+
+#given-helps .classify-helper-stars img.star3:hover ~ img{
+    opacity: 1;
+}
+
+#given-helps .classify-helper-stars img.star4:hover ~ img{
+    opacity: 1;
+}
+
+#given-helps .classify-helper-stars img.star5:hover ~ img{
+    opacity: 1;
+}
+
+
 
 #given-helps .content .row{
     width: 100%;
@@ -49,13 +118,14 @@
 }
 
 #given-helps .content .row h5{
-
     font-family: Archivo;
     font-style: normal;
     font-weight: bold;
     font-size: 14px;
     margin-right: 12px;
 }
+
+
 
 #given-helps .content .row span{
     width: 100%;
@@ -94,3 +164,4 @@
     font-weight: bold;
     font-size: 14px;
 }
+
